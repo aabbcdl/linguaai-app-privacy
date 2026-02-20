@@ -1,0 +1,491 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinguaAI Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #24292f;
+      --muted: #57606a;
+      --line: #d0d7de;
+      --card: #f6f8fa;
+      --link: #0969da;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+    h1 { margin: 0 0 8px; font-size: 40px; line-height: 1.2; }
+    h2 { margin: 28px 0 8px; font-size: 24px; line-height: 1.3; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+    h3 { margin: 20px 0 6px; font-size: 18px; }
+    p { margin: 8px 0; }
+    ul, ol { margin: 8px 0 8px 22px; }
+    li { margin: 3px 0; }
+    .meta { color: var(--muted); margin-bottom: 16px; }
+    .toolbar {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin: 16px 0;
+    }
+    select { padding: 6px 10px; font-size: 14px; }
+    .note {
+      border-left: 4px solid var(--line);
+      padding: 8px 12px;
+      color: var(--muted);
+      margin: 12px 0 20px;
+      background: #fcfcfd;
+    }
+    .lang-section[hidden] { display: none !important; }
+    a { color: var(--link); }
+    hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+    .small { color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>LinguaAI Privacy Policy</h1>
+    <div class="meta">
+      <div><strong>Last Updated:</strong> February 20, 2026</div>
+      <div><strong>Effective Date:</strong> February 20, 2026</div>
+    </div>
+
+    <div class="toolbar" aria-label="Language Switcher">
+      <label for="langSelect"><strong>Language / 语言：</strong></label>
+      <select id="langSelect">
+        <option value="en">English</option>
+        <option value="zh">简体中文</option>
+      </select>
+    </div>
+
+    <div class="note">The English version is the authoritative version. Non-English versions are provided for convenience only.</div>
+
+    <section class="lang-section" data-lang="en">
+      <h2>1. Introduction and Scope</h2>
+      <p>This Privacy Policy explains how LinguaAI ("App") collects, uses, shares, stores, and deletes data.</p>
+      <p>This policy applies to processing through the LinguaAI Android app, our backend API gateway (Cloudflare Worker), and integrated third-party SDKs/service providers listed below.</p>
+
+      <h2>2. Data We Process</h2>
+      <p>We follow data minimization and process only data needed for core features, security, abuse prevention, diagnostics, analytics, ads, and legal compliance.</p>
+
+      <h3>2.1 Data You Create in App</h3>
+      <ul>
+        <li>Translation history</li>
+        <li>Vocabulary and learning records</li>
+        <li>Generated content history</li>
+        <li>App preferences and settings</li>
+      </ul>
+
+      <h3>2.2 Device and Technical Data</h3>
+      <ul>
+        <li>App-generated pseudonymous device identifier (quota, anti-abuse, security)</li>
+        <li>App/device technical metadata</li>
+        <li>Network metadata at API edge (for example IP address)</li>
+        <li>Security/rate-limit counters and operational metrics</li>
+      </ul>
+
+      <h3>2.3 Sensitive Permissions and Boundaries</h3>
+      <p>Current Android permissions requested by the App:</p>
+      <ul>
+        <li><code>CAMERA</code></li>
+        <li><code>RECORD_AUDIO</code></li>
+        <li><code>INTERNET</code></li>
+      </ul>
+      <ul>
+        <li>Camera/microphone permissions are requested only when you actively use related features (not at app launch).</li>
+        <li>If you deny camera/microphone permission, related feature(s) will not work, but other core text-based features remain available.</li>
+        <li>The App does not currently request location runtime permission.</li>
+        <li>We do not use camera/audio permission for unrelated profiling or advertising.</li>
+      </ul>
+
+      <h3>2.4 Purchases</h3>
+      <p>Google Play Billing processes payment/transaction data. We do not store full payment card details.</p>
+
+      <h3>2.5 Ads, Analytics, Diagnostics</h3>
+      <ul>
+        <li>Ad serving/measurement/anti-fraud (AdMob)</li>
+        <li>Product analytics (Firebase Analytics)</li>
+        <li>Crash diagnostics (Firebase Crashlytics)</li>
+      </ul>
+
+      <h2>3. Purposes of Processing</h2>
+      <ul>
+        <li>Provide translation and language-learning features</li>
+        <li>Support network AI features via backend routing</li>
+        <li>Enforce quota limits and anti-abuse controls</li>
+        <li>Serve and measure ads</li>
+        <li>Improve app quality and performance</li>
+        <li>Detect crashes, security issues, and fraud</li>
+        <li>Meet legal obligations</li>
+      </ul>
+
+      <h2>4. Backend Processing and Retention</h2>
+      <p>When network features are used, requests are processed by our backend (Cloudflare Worker).</p>
+      <h3>4.1 Backend Data Categories</h3>
+      <ul>
+        <li>API request payloads needed to serve requested features</li>
+        <li>Pseudonymous device ID headers</li>
+        <li>Edge network metadata (for example IP)</li>
+        <li>Security, anti-abuse, and rate-limit state</li>
+      </ul>
+      <h3>4.2 Backend Purposes</h3>
+      <ul>
+        <li>Route requests to configured model providers</li>
+        <li>Prevent abuse/fraud/replay and enforce limits</li>
+        <li>Operate reward challenge/claim integrity flow</li>
+        <li>Support operations, reliability, and incident response</li>
+      </ul>
+      <h3>4.3 Typical Retention</h3>
+      <ul>
+        <li>Metrics: up to about 35 days</li>
+        <li>Risk/abuse state: short-term TTL (configurable)</li>
+        <li>Reward challenge state: short-lived (minutes)</li>
+      </ul>
+      <p>If law requires longer retention, legal requirements prevail.</p>
+
+      <h2>5. Server-Side Data Deletion Requests</h2>
+      <p>Even without standalone LinguaAI account registration, you may request deletion of linkable server-side data.</p>
+      <p><strong>How to request:</strong></p>
+      <ul>
+        <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
+        <li>Subject: "Server Data Deletion Request"</li>
+        <li>Include matching info (for example app-generated device ID, approximate time window, country/region, app version)</li>
+      </ul>
+      <p><strong>Process:</strong></p>
+      <ul>
+        <li>We acknowledge and verify the request.</li>
+        <li>We process valid requests within 30 calendar days (or faster if local law requires).</li>
+        <li>We send completion confirmation by email.</li>
+        <li>If data must be retained for law/security/fraud reasons, we restrict processing to those required purposes and explain why.</li>
+      </ul>
+
+      <h2>6. Third-Party Services and Sharing</h2>
+      <p>We do not sell personal data for money. Under Google Play policy, developers remain responsible for third-party SDK behavior inside the app.</p>
+      <ol>
+        <li>Google ML Kit (OCR/translation/speech) - <a href="https://policies.google.com/privacy">Policy</a></li>
+        <li>Google AdMob (ads/measurement/anti-fraud) - <a href="https://policies.google.com/privacy">Policy</a></li>
+        <li>Google Play Billing / Google Play Services - <a href="https://policies.google.com/privacy">Policy</a></li>
+        <li>Firebase Analytics - <a href="https://firebase.google.com/support/privacy">Policy</a></li>
+        <li>Firebase Crashlytics - <a href="https://firebase.google.com/support/privacy">Policy</a></li>
+        <li>Cloudflare - <a href="https://www.cloudflare.com/privacypolicy/">Policy</a></li>
+        <li>AI providers configured by backend (for example Google Gemini API, OpenAI API) -
+          <a href="https://policies.google.com/privacy">Google</a>,
+          <a href="https://openai.com/policies/privacy-policy">OpenAI</a>
+        </li>
+      </ol>
+      <p>We may disclose data when required by law, legal process, or to protect rights/safety/security.</p>
+
+      <h2>7. Advertising and Sensitive Category Restrictions</h2>
+      <ul>
+        <li>We do not intentionally use sensitive categories (race, religion, sexual orientation, health status, financial hardship, etc.) for personalized advertising.</li>
+        <li>We do not intentionally use your local translation content, vocabulary records, or generated AI content as direct inputs for personalized ad targeting.</li>
+        <li>You can manage ad personalization in Google Ads/device settings.</li>
+      </ul>
+
+      <h2>8. Sale/Share Statement</h2>
+      <ul>
+        <li>Under Google Play policy, "sale" generally refers to exchange/transfer of personal and sensitive data for monetary consideration.</li>
+        <li>Where applicable law defines sale/share more broadly (for example other valuable consideration), we apply applicable legal requirements.</li>
+      </ul>
+
+      <h2>9. User Rights and Response Time</h2>
+      <p>Depending on your jurisdiction, you may have rights such as access, correction, deletion, portability, objection/restriction, and complaint.</p>
+      <ul>
+        <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
+        <li>In-app: Settings -> Send Feedback</li>
+      </ul>
+      <p>We respond to valid requests within 30 calendar days, unless a shorter legal deadline applies.</p>
+
+      <h2>10. No Standalone LinguaAI Account</h2>
+      <p>The App currently does not provide standalone LinguaAI account registration/login. Account-deletion workflows for in-app accounts do not apply. Server-side deletion requests are handled via Section 5.</p>
+
+      <h2>11. Children</h2>
+      <p>The App is not directed to children. We do not knowingly collect personal data from children under 13, or under a higher local legal minimum age. If such data is identified, we will take steps to delete it.</p>
+
+      <h2>12. Security</h2>
+      <ul>
+        <li>HTTPS/TLS for network transmission</li>
+        <li>Access controls and least-privilege operations</li>
+        <li>Anti-abuse monitoring and security controls</li>
+        <li>Incident response procedures</li>
+      </ul>
+
+      <h2>13. Business Transfer</h2>
+      <ul>
+        <li>We provide notice before material transfer of personal data (typically at least 30 days where feasible/required).</li>
+        <li>The receiving party must protect data with terms no less protective than this policy.</li>
+        <li>Where legally available, you may request deletion before transfer takes effect.</li>
+      </ul>
+
+      <h2>14. Cross-Border Processing</h2>
+      <p>Data may be processed outside your country through global providers. We apply safeguards required by applicable law.</p>
+
+      <h2>15. Southeast Asia Compliance</h2>
+      <p>For users in Southeast Asia (including Singapore, Indonesia, Thailand, Malaysia, Vietnam), we process data in accordance with applicable local data protection requirements.</p>
+
+      <h2>16. Tracking Technologies</h2>
+      <p>The app and SDKs may use identifiers and similar technologies (for example Android advertising identifiers and SDK telemetry) for ads, analytics, diagnostics, security, and anti-fraud.</p>
+      <p>You can manage ad personalization and reset advertising identifiers in Google Ads settings.</p>
+
+      <h2>17. In-App Prominent Disclosure and Consent</h2>
+      <p>Where required by Google Play policy, we provide in-app prominent disclosure and require affirmative user action before processing personal/sensitive data outside reasonable user expectation.</p>
+
+      <h2>18. Policy Accessibility and Language</h2>
+      <ul>
+        <li>This policy is available in-app (Settings -> Privacy Policy) and on a public HTTPS URL.</li>
+        <li>No login is required to view the web policy.</li>
+        <li>If multiple language versions conflict, the English version controls.</li>
+      </ul>
+
+      <h2>19. Changes to This Policy</h2>
+      <p>We may update this policy when features, providers, legal requirements, or processing practices change. For material changes, we provide prominent notice where required.</p>
+
+      <h2>20. Contact</h2>
+      <ul>
+        <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
+        <li>In-app feedback: Settings -> Send Feedback</li>
+      </ul>
+    </section>
+
+    <section class="lang-section" data-lang="zh" hidden>
+      <h2>1. 适用范围</h2>
+      <p>本隐私政策说明 LinguaAI（“本应用”）如何收集、使用、共享、存储和删除数据。</p>
+      <p>本政策适用于 LinguaAI Android 应用、我们的后端 API 网关（Cloudflare Worker）、以及第 6 节列出的第三方 SDK 与服务商。</p>
+
+      <h2>2. 我们处理的数据</h2>
+      <p>我们遵循最小必要原则，仅处理实现核心功能、安全风控、反滥用、诊断分析、广告与法律合规所需的数据。</p>
+
+      <h3>2.1 你在应用内创建的数据</h3>
+      <ul>
+        <li>翻译历史</li>
+        <li>词汇与学习记录</li>
+        <li>AI 生成内容历史</li>
+        <li>应用偏好设置</li>
+      </ul>
+
+      <h3>2.2 设备与技术数据</h3>
+      <ul>
+        <li>应用生成的假名化设备标识（用于配额、反滥用、安全）</li>
+        <li>应用/设备技术元数据</li>
+        <li>API 边缘网络元数据（如 IP）</li>
+        <li>安全、限流与运维指标</li>
+      </ul>
+
+      <h3>2.3 敏感权限与边界</h3>
+      <p>当前 Android 权限：</p>
+      <ul>
+        <li><code>CAMERA</code></li>
+        <li><code>RECORD_AUDIO</code></li>
+        <li><code>INTERNET</code></li>
+      </ul>
+      <ul>
+        <li>相机/麦克风权限仅在你主动使用对应功能时请求，不会在启动时强制请求。</li>
+        <li>若拒绝相机/麦克风权限，仅对应功能不可用，其他文本类核心功能仍可使用。</li>
+        <li>当前实现不申请定位运行时权限。</li>
+        <li>我们不会将相机/音频权限用于无关画像或广告用途。</li>
+      </ul>
+
+      <h3>2.4 支付与订阅</h3>
+      <p>应用内购买由 Google Play Billing 处理，我们不存储完整银行卡信息。</p>
+
+      <h3>2.5 广告、分析与诊断</h3>
+      <ul>
+        <li>AdMob 广告投放/测量/反作弊</li>
+        <li>Firebase Analytics 产品分析</li>
+        <li>Firebase Crashlytics 崩溃诊断</li>
+      </ul>
+
+      <h2>3. 数据用途</h2>
+      <ul>
+        <li>提供翻译与语言学习功能</li>
+        <li>通过后端路由支持联网 AI 功能</li>
+        <li>执行配额与反滥用控制</li>
+        <li>展示与测量广告</li>
+        <li>提升应用质量与性能</li>
+        <li>识别崩溃、安全问题与欺诈行为</li>
+        <li>履行法律义务</li>
+      </ul>
+
+      <h2>4. 后端处理与保留</h2>
+      <p>使用联网功能时，请求会经过我们的 Cloudflare Worker 后端。</p>
+      <h3>4.1 后端处理数据类别</h3>
+      <ul>
+        <li>提供服务所需的 API 请求内容</li>
+        <li>假名化设备标识头</li>
+        <li>边缘网络元数据（如 IP）</li>
+        <li>安全、反滥用、限流状态</li>
+      </ul>
+      <h3>4.2 后端处理目的</h3>
+      <ul>
+        <li>路由请求到已配置模型服务商</li>
+        <li>防重放、防滥用、防欺诈与限流</li>
+        <li>维护奖励 challenge/claim 完整性</li>
+        <li>支持运维监控与事件处置</li>
+      </ul>
+      <h3>4.3 典型保留周期</h3>
+      <ul>
+        <li>指标数据约 35 天</li>
+        <li>风控/反滥用状态短周期（可配置）</li>
+        <li>奖励 challenge 状态为分钟级短周期</li>
+      </ul>
+      <p>如法律要求更长保留，按法律要求执行。</p>
+
+      <h2>5. 服务器侧数据删除请求</h2>
+      <p>即使本应用没有独立 LinguaAI 账号系统，你仍可请求删除可关联的服务器侧数据。</p>
+      <ul>
+        <li>邮箱：<strong>cdlcdl9527@gmail.com</strong></li>
+        <li>主题：<code>Server Data Deletion Request</code></li>
+        <li>请提供匹配信息（如应用生成设备标识、时间范围、地区、应用版本）</li>
+      </ul>
+      <ul>
+        <li>我们会确认并核验请求。</li>
+        <li>对有效请求，我们会在 30 个自然日内完成处理（如地方法律要求更短，以其为准）。</li>
+        <li>处理完成后通过邮件确认。</li>
+        <li>若部分数据因法律/安全/反欺诈义务必须保留，我们将仅限于该目的处理并告知原因。</li>
+      </ul>
+
+      <h2>6. 第三方服务与共享</h2>
+      <p>我们不会以金钱对价出售个人数据。根据 Google Play 政策，开发者对集成 SDK 的数据行为承担合规责任。</p>
+      <ol>
+        <li>Google ML Kit（OCR/翻译/语音相关） - <a href="https://policies.google.com/privacy">政策</a></li>
+        <li>Google AdMob（广告投放/测量/反作弊） - <a href="https://policies.google.com/privacy">政策</a></li>
+        <li>Google Play Billing / Google Play Services（支付与 Play 服务） - <a href="https://policies.google.com/privacy">政策</a></li>
+        <li>Firebase Analytics（使用分析） - <a href="https://firebase.google.com/support/privacy">政策</a></li>
+        <li>Firebase Crashlytics（崩溃诊断） - <a href="https://firebase.google.com/support/privacy">政策</a></li>
+        <li>Cloudflare（API 网关与边缘安全） - <a href="https://www.cloudflare.com/privacypolicy/">政策</a></li>
+        <li>后端配置的 AI 服务商（如 Google Gemini、OpenAI） -
+          <a href="https://policies.google.com/privacy">Google</a>、
+          <a href="https://openai.com/policies/privacy-policy">OpenAI</a>
+        </li>
+      </ol>
+      <p>在法律要求、司法程序或保护权利/安全需要时，我们可能依法披露必要数据。</p>
+
+      <h2>7. 广告敏感类别限制</h2>
+      <ul>
+        <li>不会故意基于敏感类别（种族、宗教、性取向、健康、财务困境等）进行个性化广告。</li>
+        <li>不会故意将你的本地翻译内容、词汇记录、AI 生成内容直接用于个性化广告定向。</li>
+        <li>你可在设备 Google Ads 设置中管理个性化广告。</li>
+      </ul>
+
+      <h2>8. 出售/共享声明</h2>
+      <ul>
+        <li>在 Google Play 口径下，“出售”通常指以金钱对价交换/传输个人与敏感数据。</li>
+        <li>若适用法律对 sale/share 口径更广（如“其他有价值对价”），我们按当地法律执行并保障你的法定权利。</li>
+      </ul>
+
+      <h2>9. 用户权利与响应时限</h2>
+      <p>你在适用法下可能享有访问、更正、删除、可携带、限制/反对处理、投诉等权利。</p>
+      <ul>
+        <li>邮箱：<strong>cdlcdl9527@gmail.com</strong></li>
+        <li>应用内：Settings -> Send Feedback</li>
+      </ul>
+      <p>对有效请求通常在 30 个自然日内响应；如地方法律要求更短，以其为准。</p>
+
+      <h2>10. 无独立 LinguaAI 账号</h2>
+      <p>当前应用不提供 LinguaAI 独立注册/登录。因此不适用“应用内账号删除流程”；服务器侧可关联数据删除请按第 5 节申请。</p>
+
+      <h2>11. 儿童保护</h2>
+      <p>本应用不面向儿童。我们不会明知收集 13 岁以下或地方法律要求更高最低年龄用户的个人数据；如发现，将尽快删除。</p>
+
+      <h2>12. 安全措施</h2>
+      <ul>
+        <li>HTTPS/TLS 传输加密</li>
+        <li>最小权限与访问控制</li>
+        <li>反滥用与安全监控</li>
+        <li>安全事件响应流程</li>
+      </ul>
+
+      <h2>13. 业务转让</h2>
+      <ul>
+        <li>在可行/法律要求下，通常至少提前 30 天通知。</li>
+        <li>受让方须履行不低于本政策的保护义务。</li>
+        <li>在法律允许范围内，你可在转让生效前申请删除数据。</li>
+      </ul>
+
+      <h2>14. 跨境处理</h2>
+      <p>数据可能通过全球服务商在你所在国家/地区之外处理。我们将按适用法律采取必要保障措施。</p>
+
+      <h2>15. 东南亚地区合规</h2>
+      <p>针对新加坡、印尼、泰国、马来西亚、越南用户，我们按当地数据保护法律要求处理数据。</p>
+
+      <h2>16. 跟踪技术</h2>
+      <p>应用及 SDK 可能使用标识符与类似技术（如广告标识符、SDK 遥测机制）用于广告、分析、诊断、安全与反作弊。</p>
+      <p>你可在设备 Google Ads 设置中管理个性化广告与重置广告标识符。</p>
+
+      <h2>17. 应用内显著披露与同意</h2>
+      <p>对于超出合理预期的数据处理，按 Google Play 要求提供应用内显著披露，并在处理前取得用户明确主动同意。</p>
+
+      <h2>18. 可访问性与语言</h2>
+      <ul>
+        <li>本政策可在应用内（Settings -> Privacy Policy）访问，并发布于公开 HTTPS 页面。</li>
+        <li>访问网页版本无需登录。</li>
+        <li>多语言版本存在差异时，以英文版为准。</li>
+      </ul>
+
+      <h2>19. 政策更新</h2>
+      <p>当功能、服务商、法律要求或处理方式变化时，本政策会更新；重大变更将按要求进行显著通知。</p>
+
+      <h2>20. 联系方式</h2>
+      <ul>
+        <li>邮箱：<strong>cdlcdl9527@gmail.com</strong></li>
+        <li>应用内反馈：Settings -> Send Feedback</li>
+      </ul>
+    </section>
+
+    <hr />
+    <p class="small">Last Updated: February 20, 2026 | Effective Date: February 20, 2026</p>
+  </main>
+
+  <script>
+    (function () {
+      const select = document.getElementById("langSelect");
+      const sections = document.querySelectorAll(".lang-section");
+
+      function setLang(lang) {
+        sections.forEach((el) => {
+          const matched = el.getAttribute("data-lang") === lang;
+          if (matched) {
+            el.removeAttribute("hidden");
+          } else {
+            el.setAttribute("hidden", "hidden");
+          }
+        });
+        select.value = lang;
+        try {
+          localStorage.setItem("linguaai_policy_lang", lang);
+        } catch (e) {}
+      }
+
+      const saved = (() => {
+        try {
+          return localStorage.getItem("linguaai_policy_lang");
+        } catch (e) {
+          return null;
+        }
+      })();
+
+      const browserIsZh = (navigator.language || "").toLowerCase().startsWith("zh");
+      const initial = saved === "en" || saved === "zh" ? saved : (browserIsZh ? "zh" : "en");
+      setLang(initial);
+
+      select.addEventListener("change", function () {
+        setLang(this.value);
+      });
+    })();
+  </script>
+</body>
+</html>
