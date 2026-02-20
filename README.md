@@ -7,7 +7,7 @@ This repository publishes the public privacy policy page used in Google Play Con
 
 ## Language Switch
 
-The page includes a language selector (English / 简体中文), implemented in `index.html` and remembered with `localStorage`.
+The page includes a language selector (English / 简体中文 / Bahasa Indonesia / ไทย / Tiếng Việt / Bahasa Melayu), implemented in `index.html` and remembered with `localStorage`.
 
 ## Update Flow
 
