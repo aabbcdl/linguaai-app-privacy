@@ -481,97 +481,401 @@
     </section>
 
     <section class="lang-section" data-lang="id" hidden>
-      <h2>Ringkasan Kebijakan Privasi (Bahasa Indonesia)</h2>
-      <p>Ini adalah ringkasan terjemahan untuk kenyamanan. Versi bahasa Inggris adalah versi resmi yang berlaku.</p>
+      <h2>1. Pendahuluan dan Ruang Lingkup</h2>
+      <p>Kebijakan Privasi ini menjelaskan bagaimana LinguaAI ("Aplikasi") mengumpulkan, menggunakan, membagikan, menyimpan, dan menghapus data.</p>
+      <p>Kebijakan ini berlaku untuk aplikasi Android LinguaAI, backend API gateway kami (Cloudflare Worker), serta SDK/penyedia layanan pihak ketiga yang terintegrasi.</p>
 
-      <h3>1. Ruang Lingkup</h3>
-      <p>Kebijakan ini berlaku untuk aplikasi Android LinguaAI, backend Cloudflare Worker, dan SDK pihak ketiga yang terintegrasi.</p>
+      <h2>2. Data yang Kami Proses</h2>
+      <p>Kami menerapkan minimisasi data dan hanya memproses data yang diperlukan untuk fitur inti, keamanan, pencegahan penyalahgunaan, diagnostik, analitik, iklan, dan kepatuhan hukum.</p>
 
-      <h3>2. Data yang Diproses</h3>
+      <h3>2.1 Data yang Anda Buat di Aplikasi</h3>
       <ul>
-        <li>Data dalam aplikasi: riwayat terjemahan, kosakata, riwayat konten AI, preferensi aplikasi.</li>
-        <li>Data teknis: ID perangkat pseudonim, metadata teknis, metadata jaringan (misalnya IP), metrik keamanan/rate limit.</li>
+        <li>Riwayat terjemahan</li>
+        <li>Catatan kosakata dan pembelajaran</li>
+        <li>Riwayat konten yang dihasilkan AI</li>
+        <li>Preferensi dan pengaturan aplikasi</li>
       </ul>
 
-      <h3>3. Izin Sensitif</h3>
+      <h3>2.2 Data Perangkat dan Teknis</h3>
       <ul>
-        <li>Izin: <code>CAMERA</code>, <code>RECORD_AUDIO</code>, <code>INTERNET</code>.</li>
-        <li>Izin kamera/mikrofon hanya diminta saat fitur terkait digunakan (bukan saat aplikasi dibuka).</li>
-        <li>Jika izin ditolak, hanya fitur terkait yang terpengaruh; fitur teks inti tetap tersedia.</li>
-        <li>Izin kamera/audio tidak digunakan untuk profiling/iklan yang tidak terkait.</li>
+        <li>Pengecam perangkat pseudonim yang dibuat aplikasi (digunakan hanya untuk manajemen kuota, anti-penyalahgunaan, dan perlindungan keamanan; tidak pernah ditautkan ke Google Advertising ID Anda, tidak digunakan untuk pelacakan iklan, profil pengguna, atau tujuan di luar kebijakan ini)</li>
+        <li>Metadata teknis aplikasi/perangkat</li>
+        <li>Metadata jaringan di edge API (misalnya alamat IP)</li>
+        <li>Status keamanan, rate-limit, dan metrik operasional</li>
       </ul>
 
-      <h3>4. Tujuan dan Retensi</h3>
-      <p>Data digunakan untuk menyediakan fitur, routing AI online, anti-penyalahgunaan, analitik, diagnostik, iklan, keamanan, dan kepatuhan hukum. Retensi backend mengikuti TTL operasional (contoh metrik hingga ~35 hari), kecuali hukum mewajibkan lebih lama.</p>
+      <h3>2.3 Izin Sensitif dan Batasan</h3>
+      <p>Izin Android yang saat ini diminta:</p>
+      <ul>
+        <li><code>CAMERA</code></li>
+        <li><code>RECORD_AUDIO</code></li>
+        <li><code>INTERNET</code></li>
+      </ul>
+      <ul>
+        <li>Izin kamera/mikrofon diminta hanya saat Anda aktif menggunakan fitur terkait (bukan saat aplikasi dibuka).</li>
+        <li>Jika Anda menolak izin kamera/mikrofon, fitur terkait tidak akan berfungsi, tetapi fitur teks inti tetap tersedia.</li>
+        <li>Aplikasi saat ini tidak meminta izin runtime lokasi.</li>
+        <li>Izin kamera/audio tidak digunakan untuk profiling atau iklan yang tidak terkait.</li>
+      </ul>
 
-      <h3>5. Penghapusan Data Sisi Server</h3>
+      <h3>2.4 Pembelian</h3>
+      <p>Google Play Billing memproses data pembayaran/transaksi. Kami tidak menyimpan detail penuh kartu pembayaran.</p>
+
+      <h3>2.5 Iklan, Analitik, dan Diagnostik</h3>
+      <ul>
+        <li>Penayangan/pengukuran iklan dan anti-fraud (AdMob)</li>
+        <li>Analitik produk (Firebase Analytics)</li>
+        <li>Diagnostik crash (Firebase Crashlytics)</li>
+      </ul>
+
+      <h2>3. Tujuan Pemrosesan</h2>
+      <ul>
+        <li>Menyediakan fitur terjemahan dan pembelajaran bahasa</li>
+        <li>Mendukung fitur AI berbasis jaringan melalui backend routing</li>
+        <li>Menerapkan batas kuota dan kontrol anti-penyalahgunaan</li>
+        <li>Menyajikan dan mengukur iklan</li>
+        <li>Meningkatkan kualitas dan performa aplikasi</li>
+        <li>Mendeteksi crash, isu keamanan, dan fraud</li>
+        <li>Memenuhi kewajiban hukum</li>
+      </ul>
+
+      <h2>4. Pemrosesan Backend dan Retensi</h2>
+      <p>Saat fitur jaringan digunakan, permintaan diproses oleh backend kami (Cloudflare Worker).</p>
+      <h3>4.1 Kategori Data Backend</h3>
+      <ul>
+        <li>Payload permintaan API yang diperlukan untuk layanan yang diminta</li>
+        <li>Header ID perangkat pseudonim</li>
+        <li>Metadata jaringan edge (misalnya IP)</li>
+        <li>Status keamanan, anti-penyalahgunaan, dan rate-limit</li>
+      </ul>
+      <h3>4.2 Tujuan Backend</h3>
+      <ul>
+        <li>Merutekan permintaan ke penyedia model yang dikonfigurasi</li>
+        <li>Mencegah penyalahgunaan/fraud/replay dan menegakkan limit</li>
+        <li>Menjaga integritas alur reward challenge/claim</li>
+        <li>Mendukung operasi, keandalan, dan respons insiden</li>
+      </ul>
+      <h3>4.3 Retensi Umum</h3>
+      <ul>
+        <li>Metrik: hingga sekitar 35 hari</li>
+        <li>Status risiko/penyalahgunaan: TTL jangka pendek (dapat dikonfigurasi)</li>
+        <li>Status reward challenge: jangka sangat pendek (menit)</li>
+        <li>Data cache sementara dihapus otomatis setelah transaksi API selesai, kecuali perlu disimpan untuk tujuan keamanan atau anti-penyalahgunaan.</li>
+      </ul>
+      <p>Jika hukum mewajibkan retensi lebih lama, ketentuan hukum yang berlaku akan diutamakan.</p>
+
+      <h2>5. Permintaan Penghapusan Data Sisi Server</h2>
+      <p>Bahkan tanpa registrasi akun LinguaAI mandiri, Anda dapat meminta penghapusan data sisi server yang dapat ditautkan.</p>
+      <p><strong>Cara mengajukan:</strong></p>
       <ul>
         <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
-        <li>Subjek: <code>Server Data Deletion Request</code></li>
-        <li>Sertakan info pencocokan: ID perangkat aplikasi, rentang waktu, negara/wilayah, versi aplikasi.</li>
-        <li>Permintaan valid diproses dalam 30 hari kalender, dan konfirmasi dikirim via email.</li>
+        <li>Subjek: "Server Data Deletion Request"</li>
+        <li>Sertakan informasi pencocokan (misalnya ID perangkat buatan aplikasi, perkiraan rentang waktu, negara/wilayah, versi aplikasi)</li>
+      </ul>
+      <p><strong>Proses:</strong></p>
+      <ul>
+        <li>Kami mengakui dan memverifikasi permintaan.</li>
+        <li>Permintaan valid diproses dalam 30 hari kalender (atau lebih cepat jika hukum lokal mensyaratkan).</li>
+        <li>Kami mengirim konfirmasi penyelesaian melalui email.</li>
+        <li>Jika data wajib disimpan untuk alasan hukum/keamanan/fraud, pemrosesan dibatasi pada tujuan yang diwajibkan dan alasannya dijelaskan.</li>
       </ul>
 
-      <h3>6. Pihak Ketiga dan Iklan</h3>
-      <p>Penyedia utama termasuk Google ML Kit, AdMob, Google Play Billing/Services, Firebase Analytics/Crashlytics, Cloudflare, dan penyedia AI backend (misalnya Google/OpenAI). Kami tidak menjual data pribadi untuk uang, dan tidak sengaja menggunakan kategori sensitif untuk iklan personal.</p>
+      <h2>6. Layanan Pihak Ketiga dan Pembagian Data</h2>
+      <p>Kami tidak menjual data pribadi untuk uang. Berdasarkan kebijakan Google Play, pengembang tetap bertanggung jawab atas perilaku data SDK pihak ketiga di dalam aplikasi.</p>
+      <ol>
+        <li>Google ML Kit (OCR/translation/speech) - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Google AdMob (ads/measurement/anti-fraud) - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Google Play Billing / Google Play Services - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Firebase Analytics - <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
+        <li>Firebase Crashlytics - <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
+        <li>Cloudflare - <a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a></li>
+        <li>Penyedia AI yang dikonfigurasi backend (misalnya Google Gemini API, OpenAI API) -
+          <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>,
+          <a href="https://openai.com/policies/privacy-policy">https://openai.com/policies/privacy-policy</a>
+        </li>
+      </ol>
+      <p>Data input pengguna diproses oleh penyedia AI hanya ketika Anda secara aktif memulai fitur AI berbasis jaringan, dan hanya untuk menghasilkan konten yang Anda minta. Kami tidak menggunakan konten input Anda untuk pelatihan model kecuali jika diungkapkan secara eksplisit dan Anda setujui.</p>
+      <p>Kami dapat mengungkapkan data bila diwajibkan hukum, proses hukum, atau untuk melindungi hak/keamanan/keselamatan.</p>
 
-      <h3>7. Hak Pengguna</h3>
-      <p>Anda dapat meminta akses, koreksi, penghapusan, pembatasan/keberatan, dan hak lain sesuai hukum yang berlaku. Kami merespons permintaan valid dalam 30 hari kalender (atau lebih cepat jika diwajibkan hukum lokal).</p>
+      <h2>7. Pembatasan Iklan Kategori Sensitif</h2>
+      <ul>
+        <li>Kami tidak secara sengaja menggunakan kategori sensitif (ras, agama, orientasi seksual, status kesehatan, kesulitan finansial, dll.) untuk iklan yang dipersonalisasi.</li>
+        <li>Kami tidak secara sengaja menggunakan konten terjemahan lokal, catatan kosakata, atau konten AI yang dihasilkan sebagai input langsung untuk penargetan iklan personal.</li>
+        <li>Anda dapat mengatur personalisasi iklan di Google Ads/pengaturan perangkat.</li>
+        <li>Jika Anda keluar dari iklan personal, kami menayangkan iklan non-personal berdasarkan konteks wilayah umum, tanpa profiling pengguna atau penargetan iklan.</li>
+      </ul>
 
-      <h3>8. Anak, Keamanan, dan Transfer Bisnis</h3>
-      <p>Aplikasi tidak ditujukan untuk anak di bawah 13 tahun (atau usia minimum lokal yang lebih tinggi). Kami menerapkan HTTPS/TLS, kontrol akses, dan respons insiden. Jika ada transfer bisnis material, kami memberikan pemberitahuan dan mewajibkan perlindungan setara.</p>
+      <h2>8. Pernyataan Sale/Share</h2>
+      <ul>
+        <li>Dalam kebijakan Google Play, "sale" umumnya mengacu pada pertukaran/transfer data pribadi dan sensitif untuk imbalan moneter.</li>
+        <li>Jika hukum yang berlaku mendefinisikan sale/share lebih luas (misalnya imbalan bernilai lain), kami menerapkan persyaratan hukum yang berlaku.</li>
+      </ul>
 
-      <h3>9. Bahasa dan Kontak</h3>
-      <p>Jika ada perbedaan antara versi bahasa, versi bahasa Inggris yang berlaku.</p>
+      <h2>9. Hak Pengguna dan Waktu Respons</h2>
+      <p>Bergantung yurisdiksi Anda, Anda dapat memiliki hak seperti akses, koreksi, penghapusan, portabilitas, keberatan/pembatasan, dan pengaduan.</p>
       <ul>
         <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
-        <li>In-app feedback: Settings -> Send Feedback</li>
+        <li>Dalam aplikasi: Settings -> Send Feedback</li>
+      </ul>
+      <p>Kami merespons permintaan valid dalam 30 hari kalender, kecuali tenggat hukum yang lebih singkat berlaku.</p>
+
+      <h2>10. Tidak Ada Akun LinguaAI Mandiri</h2>
+      <p>Aplikasi saat ini tidak menyediakan registrasi/login akun LinguaAI mandiri. Alur penghapusan akun dalam aplikasi tidak berlaku. Permintaan penghapusan data sisi server ditangani melalui Bagian 5.</p>
+
+      <h2>11. Anak</h2>
+      <p>Aplikasi ini tidak ditujukan untuk anak-anak. Kami tidak dengan sengaja mengumpulkan data pribadi dari anak di bawah 13 tahun (COPPA), atau di bawah usia dewasa yang berlaku di yurisdiksi Anda, termasuk 18 tahun untuk Malaysia dan Vietnam, 20 tahun untuk Thailand, dan 21 tahun untuk Indonesia. Jika data tersebut teridentifikasi, kami segera mengambil langkah penghapusan permanen.</p>
+
+      <h2>12. Keamanan</h2>
+      <ul>
+        <li>Enkripsi HTTPS/TLS untuk semua transmisi jaringan antara Aplikasi dan backend kami</li>
+        <li>Perlindungan enkripsi standar industri untuk data sensitif yang disimpan lokal di perangkat Anda (jika didukung OS perangkat dan konfigurasi penyimpanan aplikasi)</li>
+        <li>Kontrol akses ketat dan operasi least-privilege untuk sistem backend</li>
+        <li>Pemantauan anti-penyalahgunaan berkelanjutan dan kontrol keamanan</li>
+        <li>Prosedur respons insiden formal untuk kejadian keamanan data</li>
+      </ul>
+
+      <h2>13. Transfer Bisnis</h2>
+      <ul>
+        <li>Kami memberikan pemberitahuan sebelum transfer material data pribadi (umumnya setidaknya 30 hari bila layak/diwajibkan).</li>
+        <li>Pihak penerima wajib melindungi data dengan standar yang tidak kurang dari kebijakan ini.</li>
+        <li>Jika tersedia secara hukum, Anda dapat meminta penghapusan sebelum transfer berlaku.</li>
+      </ul>
+
+      <h2>14. Pemrosesan Lintas Batas</h2>
+      <p>Data dapat diproses di luar negara Anda melalui penyedia global. Kami menerapkan perlindungan yang diwajibkan oleh hukum yang berlaku.</p>
+
+      <h2>15. Kepatuhan Asia Tenggara</h2>
+      <p>Untuk pengguna di Asia Tenggara (termasuk Singapura, Indonesia, Thailand, Malaysia, dan Vietnam), kami memproses data pribadi sesuai hukum perlindungan data lokal yang berlaku, termasuk Singapore PDPA, Indonesia PDP Law No. 27/2022, Thailand PDPA B.E. 2562, Malaysia PDPA 2010, dan Vietnam Decree 13/2023/ND-CP. Anda dapat menggunakan hak hukum melalui detail kontak di Bagian 9, dan kami merespons dalam jangka waktu yang diwajibkan hukum lokal.</p>
+
+      <h2>16. Teknologi Pelacakan</h2>
+      <p>Aplikasi dan SDK dapat menggunakan identifier dan teknologi serupa (misalnya Android advertising identifiers dan telemetry SDK) untuk iklan, analitik, diagnostik, keamanan, dan anti-fraud.</p>
+      <p>Anda dapat mengelola personalisasi iklan dan mereset advertising identifier di pengaturan Google Ads.</p>
+
+      <h2>17. Pengungkapan Menonjol dalam Aplikasi dan Persetujuan</h2>
+      <p>Jika diwajibkan kebijakan Google Play, kami memberikan pengungkapan menonjol yang jelas di dalam aplikasi dan meminta persetujuan aktif eksplisit sebelum memproses data pribadi/sensitif di luar ekspektasi wajar pengguna, termasuk:</p>
+      <ul>
+        <li>Pengungkapan menonjol tujuan kamera/mikrofon sebelum meminta izin runtime.</li>
+        <li>Pengungkapan menonjol praktik pengumpulan data SDK pihak ketiga saat onboarding atau pertama kali aplikasi dibuka.</li>
+        <li>Pengungkapan menonjol pemrosesan iklan personal, dengan kontrol pengguna untuk opt-out jika tersedia.</li>
+        <li>Menutup prompt, menekan tombol kembali, atau meninggalkan halaman tidak dianggap sebagai persetujuan.</li>
+      </ul>
+
+      <h2>18. Aksesibilitas Kebijakan dan Bahasa</h2>
+      <ul>
+        <li>Kebijakan ini tersedia di dalam aplikasi (Settings -> Privacy Policy) dan di URL HTTPS publik.</li>
+        <li>Tidak diperlukan login untuk melihat versi web kebijakan.</li>
+        <li>Jika terdapat konflik antarversi bahasa, versi bahasa Inggris yang berlaku.</li>
+      </ul>
+
+      <h2>19. Perubahan Kebijakan Ini</h2>
+      <p>Kami dapat memperbarui kebijakan ini ketika fitur aplikasi, penyedia layanan, persyaratan hukum, atau praktik pemrosesan data berubah.</p>
+      <ul>
+        <li>Untuk perubahan kecil non-material (misalnya klarifikasi), kami memperbarui tanggal "Last Updated" dan menerbitkan versi terbaru di aplikasi serta halaman publik ini.</li>
+        <li>Untuk perubahan material yang mengurangi hak privasi, mengubah tujuan pemrosesan inti, atau memperkenalkan praktik pembagian data baru, kami memberikan pemberitahuan menonjol di aplikasi setidaknya 30 hari sebelum berlaku dan memperoleh persetujuan eksplisit jika diwajibkan hukum.</li>
+      </ul>
+
+      <h2>20. Kontak</h2>
+      <ul>
+        <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
+        <li>Umpan balik dalam aplikasi: Settings -> Send Feedback</li>
       </ul>
     </section>
 
     <section class="lang-section" data-lang="th" hidden>
-      <h2>สรุปนโยบายความเป็นส่วนตัว (ภาษาไทย)</h2>
-      <p>นี่คือสรุปฉบับแปลเพื่อความสะดวก โดยฉบับภาษาอังกฤษเป็นฉบับทางการที่มีผลบังคับใช้</p>
+      <h2>1. บทนำและขอบเขต</h2>
+      <p>นโยบายความเป็นส่วนตัวนี้อธิบายว่า LinguaAI ("แอป") เก็บ ใช้ เปิดเผย จัดเก็บ และลบข้อมูลอย่างไร</p>
+      <p>นโยบายนี้ใช้กับแอป Android ของ LinguaAI, ระบบ backend API gateway ของเรา (Cloudflare Worker), และ SDK/ผู้ให้บริการบุคคลที่สามที่รวมอยู่ในแอป</p>
 
-      <h3>1. ขอบเขต</h3>
-      <p>นโยบายนี้ครอบคลุมแอป Android ของ LinguaAI, ระบบหลังบ้าน Cloudflare Worker และ SDK บุคคลที่สามที่รวมในแอป</p>
+      <h2>2. ข้อมูลที่เราประมวลผล</h2>
+      <p>เราใช้หลักการเก็บข้อมูลเท่าที่จำเป็น และประมวลผลเฉพาะข้อมูลที่จำเป็นต่อฟีเจอร์หลัก ความปลอดภัย การป้องกันการใช้งานผิดปกติ การวิเคราะห์ การโฆษณา และการปฏิบัติตามกฎหมาย</p>
 
-      <h3>2. ข้อมูลที่ประมวลผล</h3>
+      <h3>2.1 ข้อมูลที่คุณสร้างในแอป</h3>
       <ul>
-        <li>ข้อมูลในแอป: ประวัติการแปล คำศัพท์ ประวัติเนื้อหา AI และการตั้งค่า</li>
-        <li>ข้อมูลเทคนิค: รหัสอุปกรณ์แบบนามแฝง ข้อมูลเทคนิคอุปกรณ์/แอป ข้อมูลเครือข่าย (เช่น IP) และเมตริกความปลอดภัย</li>
+        <li>ประวัติการแปล</li>
+        <li>คำศัพท์และบันทึกการเรียนรู้</li>
+        <li>ประวัติเนื้อหาที่สร้างโดย AI</li>
+        <li>การตั้งค่าและค่ากำหนดของแอป</li>
       </ul>
 
-      <h3>3. สิทธิ์ที่อ่อนไหว</h3>
+      <h3>2.2 ข้อมูลอุปกรณ์และข้อมูลทางเทคนิค</h3>
       <ul>
-        <li>สิทธิ์: <code>CAMERA</code>, <code>RECORD_AUDIO</code>, <code>INTERNET</code></li>
-        <li>จะขอสิทธิ์กล้อง/ไมโครโฟนเมื่อผู้ใช้กดใช้ฟีเจอร์ที่เกี่ยวข้องเท่านั้น</li>
-        <li>หากปฏิเสธสิทธิ์ ฟีเจอร์ที่เกี่ยวข้องอาจใช้งานไม่ได้ แต่ฟีเจอร์ข้อความหลักยังใช้งานได้</li>
-        <li>ไม่ใช้สิทธิ์กล้อง/เสียงเพื่อโปรไฟล์หรือโฆษณาที่ไม่เกี่ยวข้อง</li>
+        <li>รหัสอุปกรณ์แบบนามแฝงที่แอปสร้างขึ้น (ใช้เฉพาะเพื่อจัดการโควตา ป้องกันการละเมิด และความปลอดภัย; ไม่เชื่อมโยงกับ Google Advertising ID ของคุณ และไม่ใช้เพื่อการติดตามโฆษณา การทำโปรไฟล์ผู้ใช้ หรือวัตถุประสงค์ที่นอกเหนือจากนโยบายนี้)</li>
+        <li>ข้อมูลทางเทคนิคของแอป/อุปกรณ์</li>
+        <li>ข้อมูลเครือข่ายที่ API edge (เช่น IP)</li>
+        <li>สถานะด้านความปลอดภัย การจำกัดอัตรา และเมตริกการปฏิบัติการ</li>
       </ul>
 
-      <h3>4. วัตถุประสงค์และระยะเวลาเก็บข้อมูล</h3>
-      <p>ใช้ข้อมูลเพื่อให้บริการฟีเจอร์, รองรับ AI ออนไลน์, ป้องกันการละเมิด, วิเคราะห์/วินิจฉัย, โฆษณา, ความปลอดภัย และการปฏิบัติตามกฎหมาย ระยะเวลาเก็บรักษาเป็นไปตาม TTL การปฏิบัติการ (เช่น เมตริกประมาณ 35 วัน) เว้นแต่กฎหมายกำหนดให้นานกว่า</p>
+      <h3>2.3 สิทธิ์ที่อ่อนไหวและขอบเขตการใช้งาน</h3>
+      <p>สิทธิ์ Android ปัจจุบันที่แอปขอ:</p>
+      <ul>
+        <li><code>CAMERA</code></li>
+        <li><code>RECORD_AUDIO</code></li>
+        <li><code>INTERNET</code></li>
+      </ul>
+      <ul>
+        <li>จะขอสิทธิ์กล้อง/ไมโครโฟนเฉพาะเมื่อคุณกดใช้ฟีเจอร์ที่เกี่ยวข้อง (ไม่ขอทันทีเมื่อเปิดแอป)</li>
+        <li>หากคุณปฏิเสธสิทธิ์กล้อง/ไมโครโฟน ฟีเจอร์ที่เกี่ยวข้องจะไม่ทำงาน แต่ฟีเจอร์ข้อความหลักยังใช้งานได้</li>
+        <li>ปัจจุบันแอปไม่ขอสิทธิ์ตำแหน่งแบบ runtime</li>
+        <li>เราไม่ใช้สิทธิ์กล้อง/เสียงเพื่อทำโปรไฟล์หรือโฆษณาที่ไม่เกี่ยวข้อง</li>
+      </ul>
 
-      <h3>5. คำขอลบข้อมูลฝั่งเซิร์ฟเวอร์</h3>
+      <h3>2.4 การชำระเงิน</h3>
+      <p>Google Play Billing ประมวลผลข้อมูลการชำระเงิน/ธุรกรรม และเราไม่จัดเก็บข้อมูลบัตรชำระเงินแบบเต็ม</p>
+
+      <h3>2.5 โฆษณา การวิเคราะห์ และการวินิจฉัย</h3>
+      <ul>
+        <li>โฆษณา/การวัดผล/ป้องกันการทุจริต (AdMob)</li>
+        <li>การวิเคราะห์ผลิตภัณฑ์ (Firebase Analytics)</li>
+        <li>การวินิจฉัยการล่ม (Firebase Crashlytics)</li>
+      </ul>
+
+      <h2>3. วัตถุประสงค์ของการประมวลผล</h2>
+      <ul>
+        <li>ให้บริการฟีเจอร์แปลภาษาและการเรียนรู้ภาษา</li>
+        <li>รองรับฟีเจอร์ AI ออนไลน์ผ่าน backend routing</li>
+        <li>ควบคุมโควตาและป้องกันการใช้งานผิดปกติ</li>
+        <li>แสดงและวัดผลโฆษณา</li>
+        <li>ปรับปรุงคุณภาพและประสิทธิภาพของแอป</li>
+        <li>ตรวจจับการล่ม ปัญหาความปลอดภัย และการทุจริต</li>
+        <li>ปฏิบัติตามข้อกำหนดทางกฎหมาย</li>
+      </ul>
+
+      <h2>4. การประมวลผลฝั่งเซิร์ฟเวอร์และการเก็บรักษา</h2>
+      <p>เมื่อใช้ฟีเจอร์เครือข่าย คำขอจะถูกประมวลผลผ่าน backend ของเรา (Cloudflare Worker)</p>
+      <h3>4.1 หมวดหมู่ข้อมูลฝั่ง Backend</h3>
+      <ul>
+        <li>Payload ของ API ที่จำเป็นต่อการให้บริการตามคำขอ</li>
+        <li>ส่วนหัว ID อุปกรณ์แบบนามแฝง</li>
+        <li>Metadata เครือข่ายที่ edge (เช่น IP)</li>
+        <li>สถานะความปลอดภัย ป้องกันการละเมิด และการจำกัดอัตรา</li>
+      </ul>
+      <h3>4.2 วัตถุประสงค์ของ Backend</h3>
+      <ul>
+        <li>ส่งต่อคำขอไปยังผู้ให้บริการโมเดลที่กำหนดค่าไว้</li>
+        <li>ป้องกันการละเมิด/ทุจริต/โจมตีซ้ำ และบังคับใช้ข้อจำกัด</li>
+        <li>ดูแลความถูกต้องของระบบ reward challenge/claim</li>
+        <li>รองรับการปฏิบัติการ ความน่าเชื่อถือ และการรับมือเหตุการณ์</li>
+      </ul>
+      <h3>4.3 ระยะเวลาเก็บรักษาทั่วไป</h3>
+      <ul>
+        <li>เมตริก: สูงสุดประมาณ 35 วัน</li>
+        <li>สถานะความเสี่ยง/การละเมิด: TTL ระยะสั้น (ปรับค่าได้)</li>
+        <li>สถานะ reward challenge: ระยะสั้นมาก (นาที)</li>
+        <li>ข้อมูลแคชชั่วคราวจะถูกลบอัตโนมัติหลังธุรกรรม API เสร็จสิ้น ยกเว้นกรณีจำเป็นต้องเก็บเพื่อความปลอดภัยหรือการป้องกันการละเมิด</li>
+      </ul>
+      <p>หากกฎหมายกำหนดให้เก็บนานกว่า ให้ยึดตามข้อกำหนดทางกฎหมาย</p>
+
+      <h2>5. คำขอลบข้อมูลฝั่งเซิร์ฟเวอร์</h2>
+      <p>แม้ไม่มีบัญชี LinguaAI แบบแยกต่างหาก คุณยังสามารถขอให้ลบข้อมูลฝั่งเซิร์ฟเวอร์ที่เชื่อมโยงได้</p>
+      <p><strong>วิธีส่งคำขอ:</strong></p>
       <ul>
         <li>อีเมล: <strong>cdlcdl9527@gmail.com</strong></li>
-        <li>หัวข้อ: <code>Server Data Deletion Request</code></li>
-        <li>โปรดระบุข้อมูลจับคู่ เช่น ID อุปกรณ์ในแอป ช่วงเวลา ประเทศ/ภูมิภาค และเวอร์ชันแอป</li>
-        <li>คำขอที่ถูกต้องจะดำเนินการภายใน 30 วันปฏิทิน และยืนยันผลทางอีเมล</li>
+        <li>หัวข้อ: "Server Data Deletion Request"</li>
+        <li>โปรดระบุข้อมูลสำหรับจับคู่ (เช่น ID อุปกรณ์ที่แอปสร้าง ช่วงเวลา ประเทศ/ภูมิภาค เวอร์ชันแอป)</li>
+      </ul>
+      <p><strong>กระบวนการ:</strong></p>
+      <ul>
+        <li>เราจะยืนยันการรับคำขอและตรวจสอบความถูกต้อง</li>
+        <li>คำขอที่ถูกต้องจะดำเนินการภายใน 30 วันปฏิทิน (หรือเร็วกว่า หากกฎหมายท้องถิ่นกำหนด)</li>
+        <li>เราส่งการยืนยันการดำเนินการเสร็จสิ้นทางอีเมล</li>
+        <li>หากต้องเก็บข้อมูลบางส่วนตามกฎหมาย/ความปลอดภัย/การป้องกันการทุจริต เราจะจำกัดการประมวลผลเฉพาะวัตถุประสงค์ที่จำเป็นและแจ้งเหตุผล</li>
       </ul>
 
-      <h3>6. บริการบุคคลที่สามและโฆษณา</h3>
-      <p>ผู้ให้บริการหลักได้แก่ Google ML Kit, AdMob, Google Play Billing/Services, Firebase Analytics/Crashlytics, Cloudflare และผู้ให้บริการ AI จาก backend (เช่น Google/OpenAI) เราไม่ขายข้อมูลส่วนบุคคลเพื่อเงิน และไม่ตั้งใจใช้หมวดข้อมูลอ่อนไหวสำหรับโฆษณาแบบเฉพาะบุคคล</p>
+      <h2>6. บริการบุคคลที่สามและการแบ่งปันข้อมูล</h2>
+      <p>เราไม่ขายข้อมูลส่วนบุคคลเพื่อแลกเงิน ตามนโยบาย Google Play นักพัฒนายังคงต้องรับผิดชอบต่อพฤติกรรมข้อมูลของ SDK บุคคลที่สามในแอป</p>
+      <ol>
+        <li>Google ML Kit (OCR/translation/speech) - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Google AdMob (ads/measurement/anti-fraud) - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Google Play Billing / Google Play Services - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Firebase Analytics - <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
+        <li>Firebase Crashlytics - <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
+        <li>Cloudflare - <a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a></li>
+        <li>ผู้ให้บริการ AI ที่กำหนดใน backend (เช่น Google Gemini API, OpenAI API) -
+          <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>,
+          <a href="https://openai.com/policies/privacy-policy">https://openai.com/policies/privacy-policy</a>
+        </li>
+      </ol>
+      <p>ข้อมูลอินพุตของผู้ใช้จะถูกประมวลผลโดยผู้ให้บริการ AI เฉพาะเมื่อคุณเริ่มใช้ฟีเจอร์ AI แบบเครือข่ายด้วยตนเอง และใช้เพื่อสร้างผลลัพธ์ตามที่คุณร้องขอเท่านั้น เราจะไม่ใช้ข้อมูลอินพุตของคุณเพื่อฝึกโมเดล เว้นแต่มีการเปิดเผยอย่างชัดเจนและได้รับความยินยอมจากคุณ</p>
+      <p>เราอาจเปิดเผยข้อมูลเมื่อกฎหมายกำหนด กระบวนการทางกฎหมายกำหนด หรือเพื่อปกป้องสิทธิ์/ความปลอดภัย</p>
 
-      <h3>7. สิทธิของผู้ใช้</h3>
-      <p>ผู้ใช้มีสิทธิตามกฎหมายที่ใช้บังคับ เช่น เข้าถึง แก้ไข ลบ จำกัด/คัดค้านการประมวลผล โดยเราตอบคำขอที่ถูกต้องภายใน 30 วันปฏิทิน (หรือเร็วกว่า หากกฎหมายท้องถิ่นกำหนด)</p>
+      <h2>7. ข้อจำกัดโฆษณาตามหมวดอ่อนไหว</h2>
+      <ul>
+        <li>เราไม่ตั้งใจใช้หมวดข้อมูลอ่อนไหว (เช่น เชื้อชาติ ศาสนา รสนิยมทางเพศ สุขภาพ สถานะการเงิน) เพื่อโฆษณาแบบเฉพาะบุคคล</li>
+        <li>เราไม่ตั้งใจใช้เนื้อหาแปลในเครื่อง บันทึกคำศัพท์ หรือเนื้อหา AI ที่สร้างขึ้นเป็นอินพุตโดยตรงสำหรับการกำหนดเป้าหมายโฆษณาแบบเฉพาะบุคคล</li>
+        <li>คุณสามารถจัดการการปรับแต่งโฆษณาได้ใน Google Ads/การตั้งค่าอุปกรณ์</li>
+        <li>หากคุณเลือกไม่รับโฆษณาแบบเฉพาะบุคคล เราจะแสดงเฉพาะโฆษณาแบบไม่เฉพาะบุคคลตามบริบทภูมิภาคทั่วไป โดยไม่ทำโปรไฟล์ผู้ใช้หรือกำหนดเป้าหมายโฆษณา</li>
+      </ul>
 
-      <h3>8. เด็ก ความปลอดภัย และการโอนธุรกิจ</h3>
-      <p>แอปไม่มุ่งเป้าเด็กอายุต่ำกว่า 13 ปี (หรืออายุขั้นต่ำที่สูงกว่าตามกฎหมายท้องถิ่น) เราใช้ HTTPS/TLS การควบคุมสิทธิ์ และกระบวนการรับมือเหตุการณ์ หากมีการโอนธุรกิจที่มีนัยสำคัญ เราจะแจ้งล่วงหน้าและกำหนดให้ผู้รับโอนคุ้มครองข้อมูลในระดับเทียบเท่า</p>
+      <h2>8. คำชี้แจงการขาย/การแบ่งปันข้อมูล</h2>
+      <ul>
+        <li>ตามนโยบาย Google Play คำว่า "sale" โดยทั่วไปหมายถึงการแลกเปลี่ยน/โอนข้อมูลส่วนบุคคลหรือข้อมูลอ่อนไหวเพื่อผลตอบแทนทางการเงิน</li>
+        <li>หากกฎหมายที่ใช้บังคับนิยาม sale/share กว้างกว่า (เช่น ผลตอบแทนที่มีมูลค่าอื่น) เราจะปฏิบัติตามข้อกำหนดทางกฎหมายนั้น</li>
+      </ul>
 
-      <h3>9. ภาษาและการติดต่อ</h3>
-      <p>หากมีความแตกต่างของแต่ละภาษา ให้ยึดฉบับภาษาอังกฤษ</p>
+      <h2>9. สิทธิของผู้ใช้และระยะเวลาตอบกลับ</h2>
+      <p>ขึ้นอยู่กับเขตอำนาจของคุณ คุณอาจมีสิทธิ เช่น การเข้าถึง การแก้ไข การลบ การโอนย้าย การคัดค้าน/จำกัดการประมวลผล และการร้องเรียน</p>
+      <ul>
+        <li>อีเมล: <strong>cdlcdl9527@gmail.com</strong></li>
+        <li>ในแอป: Settings -> Send Feedback</li>
+      </ul>
+      <p>เราตอบคำขอที่ถูกต้องภายใน 30 วันปฏิทิน เว้นแต่กฎหมายกำหนดระยะเวลาที่สั้นกว่า</p>
+
+      <h2>10. ไม่มีบัญชี LinguaAI แบบแยกต่างหาก</h2>
+      <p>ปัจจุบันแอปไม่มีระบบสมัคร/เข้าสู่ระบบบัญชี LinguaAI แยกต่างหาก กระบวนการลบบัญชีในแอปจึงไม่ใช้บังคับ และการลบข้อมูลฝั่งเซิร์ฟเวอร์ให้เป็นไปตามข้อ 5</p>
+
+      <h2>11. เด็ก</h2>
+      <p>แอปนี้ไม่ได้มุ่งเป้าไปยังเด็ก เราไม่เก็บข้อมูลส่วนบุคคลของเด็กอายุต่ำกว่า 13 ปี (COPPA) หรืออายุต่ำกว่าเกณฑ์บรรลุนิติภาวะที่ใช้ในเขตอำนาจของคุณ ซึ่งรวมถึง 18 ปีสำหรับมาเลเซียและเวียดนาม 20 ปีสำหรับไทย และ 21 ปีสำหรับอินโดนีเซีย หากพบข้อมูลดังกล่าว เราจะดำเนินการลบอย่างถาวรทันที</p>
+
+      <h2>12. ความปลอดภัย</h2>
+      <ul>
+        <li>เข้ารหัส HTTPS/TLS สำหรับการส่งข้อมูลผ่านเครือข่ายทั้งหมดระหว่างแอปและ backend</li>
+        <li>การป้องกันด้วยการเข้ารหัสระดับมาตรฐานอุตสาหกรรมสำหรับข้อมูลอ่อนไหวที่จัดเก็บในอุปกรณ์ของคุณ (เมื่อระบบปฏิบัติการและการตั้งค่าการจัดเก็บของแอปรองรับ)</li>
+        <li>การควบคุมสิทธิ์เข้าถึงอย่างเข้มงวดและหลัก least-privilege สำหรับระบบ backend</li>
+        <li>การเฝ้าระวังการใช้งานผิดปกติอย่างต่อเนื่องและมาตรการควบคุมความปลอดภัย</li>
+        <li>กระบวนการตอบสนองเหตุการณ์ความปลอดภัยข้อมูลอย่างเป็นทางการ</li>
+      </ul>
+
+      <h2>13. การโอนธุรกิจ</h2>
+      <ul>
+        <li>เราจะแจ้งให้ทราบก่อนการโอนข้อมูลส่วนบุคคลที่มีนัยสำคัญ (โดยทั่วไปอย่างน้อย 30 วันเมื่อทำได้/ตามที่กฎหมายกำหนด)</li>
+        <li>ฝ่ายรับโอนต้องคุ้มครองข้อมูลด้วยมาตรฐานที่ไม่ต่ำกว่านโยบายนี้</li>
+        <li>ในกรณีที่กฎหมายอนุญาต คุณอาจขอให้ลบข้อมูลก่อนการโอนมีผล</li>
+      </ul>
+
+      <h2>14. การประมวลผลข้ามพรมแดน</h2>
+      <p>ข้อมูลอาจถูกประมวลผลนอกประเทศของคุณผ่านผู้ให้บริการระดับโลก โดยเราจะใช้มาตรการคุ้มครองตามที่กฎหมายกำหนด</p>
+
+      <h2>15. การปฏิบัติตามข้อกำหนดในเอเชียตะวันออกเฉียงใต้</h2>
+      <p>สำหรับผู้ใช้ในเอเชียตะวันออกเฉียงใต้ (รวมถึงสิงคโปร์ อินโดนีเซีย ไทย มาเลเซีย และเวียดนาม) เราประมวลผลข้อมูลส่วนบุคคลตามกฎหมายคุ้มครองข้อมูลท้องถิ่นที่เกี่ยวข้อง รวมถึง Singapore PDPA, Indonesia PDP Law No. 27/2022, Thailand PDPA B.E. 2562, Malaysia PDPA 2010 และ Vietnam Decree 13/2023/ND-CP คุณสามารถใช้สิทธิ์ตามกฎหมายผ่านช่องทางในข้อ 9 และเราจะตอบกลับภายในเวลาที่กฎหมายท้องถิ่นกำหนด</p>
+
+      <h2>16. เทคโนโลยีติดตาม</h2>
+      <p>แอปและ SDK อาจใช้ตัวระบุและเทคโนโลยีที่คล้ายกัน (เช่น Android advertising identifiers และ telemetry ของ SDK) เพื่อโฆษณา วิเคราะห์ วินิจฉัย ความปลอดภัย และป้องกันการทุจริต</p>
+      <p>คุณสามารถจัดการการปรับแต่งโฆษณาและรีเซ็ต advertising identifier ในการตั้งค่า Google Ads</p>
+
+      <h2>17. การเปิดเผยแบบเด่นชัดและความยินยอมในแอป</h2>
+      <p>เมื่อ Google Play กำหนด เราจะมีการเปิดเผยแบบเด่นชัดในแอปอย่างชัดเจน และขอความยินยอมเชิงรุกอย่างชัดแจ้ง ก่อนประมวลผลข้อมูลส่วนบุคคล/ข้อมูลอ่อนไหวที่อยู่นอกเหนือความคาดหมายที่สมเหตุสมผลของผู้ใช้ ซึ่งรวมถึง:</p>
+      <ul>
+        <li>เปิดเผยวัตถุประสงค์การใช้กล้อง/ไมโครโฟนอย่างเด่นชัดก่อนขอสิทธิ์ runtime</li>
+        <li>เปิดเผยแนวทางการเก็บข้อมูลของ SDK บุคคลที่สามอย่างเด่นชัดระหว่าง onboarding หรือการเปิดแอปครั้งแรก</li>
+        <li>เปิดเผยการประมวลผลโฆษณาแบบเฉพาะบุคคลอย่างเด่นชัด พร้อมตัวเลือก opt-out ที่มีให้ใช้งาน</li>
+        <li>การปิดหน้าต่างแจ้งเตือน การกดปุ่มย้อนกลับ หรือการออกจากหน้า ไม่ถือเป็นความยินยอม</li>
+      </ul>
+
+      <h2>18. การเข้าถึงนโยบายและภาษา</h2>
+      <ul>
+        <li>นโยบายนี้เข้าถึงได้ในแอป (Settings -> Privacy Policy) และผ่าน URL HTTPS สาธารณะ</li>
+        <li>ไม่ต้องล็อกอินเพื่อดูเวอร์ชันเว็บของนโยบาย</li>
+        <li>หากมีความแตกต่างระหว่างหลายภาษา ให้ยึดฉบับภาษาอังกฤษ</li>
+      </ul>
+
+      <h2>19. การเปลี่ยนแปลงนโยบายนี้</h2>
+      <p>เราอาจอัปเดตนโยบายนี้เมื่อฟีเจอร์แอป ผู้ให้บริการ ข้อกำหนดทางกฎหมาย หรือแนวปฏิบัติการประมวลผลข้อมูลเปลี่ยนแปลง</p>
+      <ul>
+        <li>สำหรับการเปลี่ยนแปลงเล็กน้อยที่ไม่เป็นสาระสำคัญ (เช่น คำชี้แจงเพิ่มเติม) เราจะอัปเดตวันที่ "Last Updated" และเผยแพร่เวอร์ชันล่าสุดในแอปและบนหน้าสาธารณะนี้</li>
+        <li>สำหรับการเปลี่ยนแปลงสาระสำคัญที่ลดสิทธิความเป็นส่วนตัว เปลี่ยนวัตถุประสงค์หลักของการประมวลผล หรือเพิ่มรูปแบบการแบ่งปันข้อมูลใหม่ เราจะแจ้งเตือนในแอปแบบเด่นชัดอย่างน้อย 30 วันก่อนมีผล และขอความยินยอมอย่างชัดแจ้งเมื่อกฎหมายกำหนด</li>
+      </ul>
+
+      <h2>20. ติดต่อ</h2>
       <ul>
         <li>อีเมล: <strong>cdlcdl9527@gmail.com</strong></li>
         <li>ข้อเสนอแนะในแอป: Settings -> Send Feedback</li>
@@ -579,48 +883,200 @@
     </section>
 
     <section class="lang-section" data-lang="vi" hidden>
-      <h2>Tóm tắt Chính sách quyền riêng tư (Tiếng Việt)</h2>
-      <p>Đây là bản tóm tắt dịch để thuận tiện tham khảo. Bản tiếng Anh là bản chính thức có hiệu lực.</p>
+      <h2>1. Giới thiệu và phạm vi</h2>
+      <p>Chính sách quyền riêng tư này giải thích cách LinguaAI ("Ứng dụng") thu thập, sử dụng, chia sẻ, lưu trữ và xóa dữ liệu.</p>
+      <p>Chính sách áp dụng cho ứng dụng Android LinguaAI, backend API gateway của chúng tôi (Cloudflare Worker), và các SDK/nhà cung cấp bên thứ ba được tích hợp.</p>
 
-      <h3>1. Phạm vi</h3>
-      <p>Chính sách áp dụng cho ứng dụng Android LinguaAI, backend Cloudflare Worker và các SDK bên thứ ba được tích hợp.</p>
+      <h2>2. Dữ liệu chúng tôi xử lý</h2>
+      <p>Chúng tôi áp dụng nguyên tắc tối thiểu hóa dữ liệu và chỉ xử lý dữ liệu cần thiết cho tính năng cốt lõi, bảo mật, chống lạm dụng, chẩn đoán, phân tích, quảng cáo và tuân thủ pháp luật.</p>
 
-      <h3>2. Dữ liệu được xử lý</h3>
+      <h3>2.1 Dữ liệu bạn tạo trong ứng dụng</h3>
       <ul>
-        <li>Dữ liệu trong ứng dụng: lịch sử dịch, từ vựng, lịch sử nội dung AI, tùy chọn cài đặt.</li>
-        <li>Dữ liệu kỹ thuật: mã thiết bị giả danh, metadata kỹ thuật, metadata mạng (ví dụ IP), chỉ số bảo mật/rate-limit.</li>
+        <li>Lịch sử dịch</li>
+        <li>Từ vựng và bản ghi học tập</li>
+        <li>Lịch sử nội dung do AI tạo</li>
+        <li>Tùy chọn và cài đặt ứng dụng</li>
       </ul>
 
-      <h3>3. Quyền nhạy cảm</h3>
+      <h3>2.2 Dữ liệu thiết bị và kỹ thuật</h3>
       <ul>
-        <li>Quyền: <code>CAMERA</code>, <code>RECORD_AUDIO</code>, <code>INTERNET</code>.</li>
-        <li>Chỉ yêu cầu quyền camera/micro khi người dùng chủ động dùng tính năng liên quan.</li>
-        <li>Nếu từ chối quyền, chỉ tính năng liên quan bị ảnh hưởng; tính năng văn bản cốt lõi vẫn hoạt động.</li>
-        <li>Không sử dụng quyền camera/âm thanh cho mục đích profiling hoặc quảng cáo không liên quan.</li>
+        <li>Mã định danh thiết bị giả danh do ứng dụng tạo (chỉ dùng cho quản lý hạn mức, chống lạm dụng và bảo mật; không liên kết với Google Advertising ID của bạn, không dùng cho theo dõi quảng cáo, hồ sơ người dùng hoặc mục đích ngoài chính sách này)</li>
+        <li>Siêu dữ liệu kỹ thuật của ứng dụng/thiết bị</li>
+        <li>Siêu dữ liệu mạng tại API edge (ví dụ địa chỉ IP)</li>
+        <li>Trạng thái bảo mật, giới hạn tần suất và chỉ số vận hành</li>
       </ul>
 
-      <h3>4. Mục đích và thời hạn lưu giữ</h3>
-      <p>Dữ liệu được dùng cho tính năng ứng dụng, định tuyến AI trực tuyến, chống lạm dụng, phân tích/chẩn đoán, quảng cáo, bảo mật và tuân thủ pháp luật. Dữ liệu backend được lưu theo TTL vận hành (ví dụ chỉ số khoảng 35 ngày), trừ khi luật yêu cầu lâu hơn.</p>
+      <h3>2.3 Quyền nhạy cảm và phạm vi sử dụng</h3>
+      <p>Các quyền Android hiện được yêu cầu:</p>
+      <ul>
+        <li><code>CAMERA</code></li>
+        <li><code>RECORD_AUDIO</code></li>
+        <li><code>INTERNET</code></li>
+      </ul>
+      <ul>
+        <li>Quyền camera/micro chỉ được yêu cầu khi bạn chủ động dùng tính năng liên quan (không yêu cầu khi mở ứng dụng).</li>
+        <li>Nếu bạn từ chối camera/micro, tính năng liên quan sẽ không hoạt động, nhưng tính năng văn bản cốt lõi vẫn dùng được.</li>
+        <li>Ứng dụng hiện không yêu cầu quyền vị trí runtime.</li>
+        <li>Chúng tôi không dùng quyền camera/âm thanh cho profiling hoặc quảng cáo không liên quan.</li>
+      </ul>
 
-      <h3>5. Yêu cầu xóa dữ liệu phía máy chủ</h3>
+      <h3>2.4 Thanh toán</h3>
+      <p>Google Play Billing xử lý dữ liệu thanh toán/giao dịch. Chúng tôi không lưu thông tin đầy đủ của thẻ thanh toán.</p>
+
+      <h3>2.5 Quảng cáo, phân tích, chẩn đoán</h3>
+      <ul>
+        <li>Phân phối quảng cáo/đo lường/chống gian lận (AdMob)</li>
+        <li>Phân tích sản phẩm (Firebase Analytics)</li>
+        <li>Chẩn đoán sự cố (Firebase Crashlytics)</li>
+      </ul>
+
+      <h2>3. Mục đích xử lý</h2>
+      <ul>
+        <li>Cung cấp tính năng dịch và học ngôn ngữ</li>
+        <li>Hỗ trợ tính năng AI trực tuyến qua định tuyến backend</li>
+        <li>Thực thi hạn mức và kiểm soát chống lạm dụng</li>
+        <li>Phân phối và đo lường quảng cáo</li>
+        <li>Cải thiện chất lượng và hiệu năng ứng dụng</li>
+        <li>Phát hiện sự cố, rủi ro bảo mật và gian lận</li>
+        <li>Tuân thủ nghĩa vụ pháp lý</li>
+      </ul>
+
+      <h2>4. Xử lý backend và thời gian lưu giữ</h2>
+      <p>Khi dùng tính năng mạng, yêu cầu được xử lý qua backend của chúng tôi (Cloudflare Worker).</p>
+      <h3>4.1 Nhóm dữ liệu backend</h3>
+      <ul>
+        <li>Payload API cần thiết để phục vụ tính năng được yêu cầu</li>
+        <li>Header ID thiết bị giả danh</li>
+        <li>Metadata mạng edge (ví dụ IP)</li>
+        <li>Trạng thái bảo mật, chống lạm dụng và giới hạn tần suất</li>
+      </ul>
+      <h3>4.2 Mục đích backend</h3>
+      <ul>
+        <li>Định tuyến yêu cầu tới nhà cung cấp mô hình đã cấu hình</li>
+        <li>Ngăn lạm dụng/gian lận/replay và áp dụng giới hạn</li>
+        <li>Bảo đảm tính toàn vẹn của luồng reward challenge/claim</li>
+        <li>Hỗ trợ vận hành, độ tin cậy và ứng phó sự cố</li>
+      </ul>
+      <h3>4.3 Lưu giữ điển hình</h3>
+      <ul>
+        <li>Chỉ số: tối đa khoảng 35 ngày</li>
+        <li>Trạng thái rủi ro/lạm dụng: TTL ngắn hạn (có thể cấu hình)</li>
+        <li>Trạng thái reward challenge: ngắn hạn (phút)</li>
+        <li>Dữ liệu cache tạm thời được xóa tự động sau khi giao dịch API hoàn tất, trừ khi cần lưu để phục vụ bảo mật hoặc chống lạm dụng.</li>
+      </ul>
+      <p>Nếu luật yêu cầu lưu giữ lâu hơn, quy định pháp luật sẽ được ưu tiên áp dụng.</p>
+
+      <h2>5. Yêu cầu xóa dữ liệu phía máy chủ</h2>
+      <p>Ngay cả khi không có tài khoản LinguaAI độc lập, bạn vẫn có thể yêu cầu xóa dữ liệu phía máy chủ có thể liên kết.</p>
+      <p><strong>Cách gửi yêu cầu:</strong></p>
       <ul>
         <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
-        <li>Tiêu đề: <code>Server Data Deletion Request</code></li>
-        <li>Cung cấp thông tin đối chiếu: ID thiết bị ứng dụng, khoảng thời gian, quốc gia/khu vực, phiên bản ứng dụng.</li>
-        <li>Yêu cầu hợp lệ được xử lý trong 30 ngày dương lịch và xác nhận qua email.</li>
+        <li>Tiêu đề: "Server Data Deletion Request"</li>
+        <li>Vui lòng cung cấp thông tin đối chiếu (ví dụ ID thiết bị do ứng dụng tạo, khoảng thời gian ước lượng, quốc gia/khu vực, phiên bản ứng dụng)</li>
+      </ul>
+      <p><strong>Quy trình:</strong></p>
+      <ul>
+        <li>Chúng tôi xác nhận và kiểm tra yêu cầu.</li>
+        <li>Yêu cầu hợp lệ được xử lý trong vòng 30 ngày dương lịch (hoặc sớm hơn nếu luật địa phương yêu cầu).</li>
+        <li>Chúng tôi gửi xác nhận hoàn tất qua email.</li>
+        <li>Nếu một phần dữ liệu phải lưu vì lý do pháp lý/bảo mật/chống gian lận, việc xử lý sẽ bị giới hạn cho mục đích bắt buộc đó và có giải thích.</li>
       </ul>
 
-      <h3>6. Bên thứ ba và quảng cáo</h3>
-      <p>Nhà cung cấp chính gồm Google ML Kit, AdMob, Google Play Billing/Services, Firebase Analytics/Crashlytics, Cloudflare và nhà cung cấp AI do backend cấu hình (ví dụ Google/OpenAI). Chúng tôi không bán dữ liệu cá nhân để lấy tiền và không cố ý dùng danh mục nhạy cảm cho quảng cáo cá nhân hóa.</p>
+      <h2>6. Dịch vụ bên thứ ba và chia sẻ dữ liệu</h2>
+      <p>Chúng tôi không bán dữ liệu cá nhân để lấy tiền. Theo chính sách Google Play, nhà phát triển vẫn chịu trách nhiệm đối với hành vi dữ liệu của SDK bên thứ ba trong ứng dụng.</p>
+      <ol>
+        <li>Google ML Kit (OCR/translation/speech) - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Google AdMob (ads/measurement/anti-fraud) - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Google Play Billing / Google Play Services - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Firebase Analytics - <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
+        <li>Firebase Crashlytics - <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
+        <li>Cloudflare - <a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a></li>
+        <li>Nhà cung cấp AI do backend cấu hình (ví dụ Google Gemini API, OpenAI API) -
+          <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>,
+          <a href="https://openai.com/policies/privacy-policy">https://openai.com/policies/privacy-policy</a>
+        </li>
+      </ol>
+      <p>Dữ liệu đầu vào của người dùng chỉ được nhà cung cấp AI xử lý khi bạn chủ động khởi chạy tính năng AI trực tuyến, và chỉ để tạo nội dung theo yêu cầu của bạn. Chúng tôi không dùng nội dung đầu vào của bạn cho huấn luyện mô hình trừ khi đã công bố rõ ràng và có sự đồng ý của bạn.</p>
+      <p>Chúng tôi có thể tiết lộ dữ liệu khi có yêu cầu pháp luật, quy trình pháp lý, hoặc để bảo vệ quyền lợi/an toàn/bảo mật.</p>
 
-      <h3>7. Quyền người dùng</h3>
-      <p>Người dùng có các quyền theo luật áp dụng như truy cập, chỉnh sửa, xóa, hạn chế/phản đối xử lý. Chúng tôi phản hồi yêu cầu hợp lệ trong 30 ngày dương lịch (hoặc sớm hơn nếu luật địa phương yêu cầu).</p>
+      <h2>7. Giới hạn quảng cáo theo danh mục nhạy cảm</h2>
+      <ul>
+        <li>Chúng tôi không cố ý sử dụng danh mục nhạy cảm (chủng tộc, tôn giáo, xu hướng tính dục, tình trạng sức khỏe, khó khăn tài chính...) cho quảng cáo cá nhân hóa.</li>
+        <li>Chúng tôi không cố ý dùng nội dung dịch cục bộ, bản ghi từ vựng hoặc nội dung AI tạo ra làm đầu vào trực tiếp cho nhắm mục tiêu quảng cáo cá nhân hóa.</li>
+        <li>Bạn có thể quản lý cá nhân hóa quảng cáo trong Google Ads/cài đặt thiết bị.</li>
+        <li>Nếu bạn chọn không nhận quảng cáo cá nhân hóa, chúng tôi chỉ hiển thị quảng cáo không cá nhân hóa dựa trên bối cảnh khu vực chung, không lập hồ sơ người dùng hoặc nhắm mục tiêu quảng cáo.</li>
+      </ul>
 
-      <h3>8. Trẻ em, bảo mật và chuyển nhượng kinh doanh</h3>
-      <p>Ứng dụng không hướng tới trẻ em dưới 13 tuổi (hoặc ngưỡng tuổi tối thiểu địa phương cao hơn). Chúng tôi áp dụng HTTPS/TLS, kiểm soát truy cập và quy trình ứng phó sự cố. Nếu có chuyển nhượng kinh doanh quan trọng, chúng tôi thông báo trước và yêu cầu bên nhận bảo vệ dữ liệu ở mức tương đương.</p>
+      <h2>8. Tuyên bố về sale/share dữ liệu</h2>
+      <ul>
+        <li>Theo chính sách Google Play, "sale" thường là việc trao đổi/chuyển giao dữ liệu cá nhân và nhạy cảm để nhận lợi ích tiền tệ.</li>
+        <li>Nếu luật áp dụng định nghĩa sale/share rộng hơn (ví dụ lợi ích có giá trị khác), chúng tôi tuân thủ các yêu cầu pháp luật tương ứng.</li>
+      </ul>
 
-      <h3>9. Ngôn ngữ và liên hệ</h3>
-      <p>Nếu có khác biệt giữa các ngôn ngữ, bản tiếng Anh được ưu tiên.</p>
+      <h2>9. Quyền người dùng và thời hạn phản hồi</h2>
+      <p>Tùy khu vực pháp lý, bạn có thể có quyền truy cập, chỉnh sửa, xóa, di chuyển dữ liệu, phản đối/hạn chế xử lý và khiếu nại.</p>
+      <ul>
+        <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
+        <li>Trong ứng dụng: Settings -> Send Feedback</li>
+      </ul>
+      <p>Chúng tôi phản hồi yêu cầu hợp lệ trong 30 ngày dương lịch, trừ khi có thời hạn pháp lý ngắn hơn.</p>
+
+      <h2>10. Không có tài khoản LinguaAI độc lập</h2>
+      <p>Ứng dụng hiện không cung cấp đăng ký/đăng nhập tài khoản LinguaAI độc lập. Quy trình xóa tài khoản trong ứng dụng không áp dụng; xóa dữ liệu phía máy chủ được xử lý theo Mục 5.</p>
+
+      <h2>11. Trẻ em</h2>
+      <p>Ứng dụng không hướng tới trẻ em. Chúng tôi không cố ý thu thập dữ liệu cá nhân của trẻ dưới 13 tuổi (COPPA), hoặc dưới độ tuổi thành niên theo khu vực pháp lý của bạn, bao gồm 18 tuổi tại Malaysia và Việt Nam, 20 tuổi tại Thái Lan, và 21 tuổi tại Indonesia. Nếu phát hiện dữ liệu như vậy, chúng tôi sẽ ngay lập tức thực hiện xóa vĩnh viễn.</p>
+
+      <h2>12. Bảo mật</h2>
+      <ul>
+        <li>Mã hóa HTTPS/TLS cho toàn bộ truyền dữ liệu mạng giữa Ứng dụng và backend của chúng tôi</li>
+        <li>Bảo vệ mã hóa theo tiêu chuẩn ngành đối với dữ liệu nhạy cảm lưu cục bộ trên thiết bị của bạn (khi được hệ điều hành thiết bị và cấu hình lưu trữ ứng dụng hỗ trợ)</li>
+        <li>Kiểm soát truy cập nghiêm ngặt và nguyên tắc đặc quyền tối thiểu cho hệ thống backend</li>
+        <li>Giám sát chống lạm dụng liên tục và biện pháp kiểm soát bảo mật</li>
+        <li>Quy trình ứng phó sự cố chính thức đối với sự kiện an ninh dữ liệu</li>
+      </ul>
+
+      <h2>13. Chuyển nhượng doanh nghiệp</h2>
+      <ul>
+        <li>Chúng tôi thông báo trước khi có chuyển giao quan trọng dữ liệu cá nhân (thường ít nhất 30 ngày khi khả thi/theo yêu cầu pháp luật).</li>
+        <li>Bên nhận phải bảo vệ dữ liệu với tiêu chuẩn không thấp hơn chính sách này.</li>
+        <li>Nếu pháp luật cho phép, bạn có thể yêu cầu xóa trước khi chuyển giao có hiệu lực.</li>
+      </ul>
+
+      <h2>14. Xử lý xuyên biên giới</h2>
+      <p>Dữ liệu có thể được xử lý ngoài quốc gia của bạn thông qua nhà cung cấp toàn cầu. Chúng tôi áp dụng các biện pháp bảo vệ theo luật áp dụng.</p>
+
+      <h2>15. Tuân thủ tại Đông Nam Á</h2>
+      <p>Đối với người dùng tại Đông Nam Á (bao gồm Singapore, Indonesia, Thái Lan, Malaysia và Việt Nam), chúng tôi xử lý dữ liệu cá nhân theo luật bảo vệ dữ liệu địa phương áp dụng, bao gồm Singapore PDPA, Indonesia PDP Law No. 27/2022, Thailand PDPA B.E. 2562, Malaysia PDPA 2010 và Vietnam Decree 13/2023/ND-CP. Bạn có thể thực hiện quyền theo luật thông qua thông tin liên hệ tại Mục 9, và chúng tôi phản hồi trong thời hạn pháp luật địa phương yêu cầu.</p>
+
+      <h2>16. Công nghệ theo dõi</h2>
+      <p>Ứng dụng và SDK có thể sử dụng định danh và công nghệ tương tự (ví dụ Android advertising identifiers và telemetry SDK) cho quảng cáo, phân tích, chẩn đoán, bảo mật và chống gian lận.</p>
+      <p>Bạn có thể quản lý cá nhân hóa quảng cáo và đặt lại advertising identifier trong cài đặt Google Ads.</p>
+
+      <h2>17. Công bố nổi bật và sự đồng ý trong ứng dụng</h2>
+      <p>Khi chính sách Google Play yêu cầu, chúng tôi cung cấp công bố nổi bật rõ ràng trong ứng dụng và yêu cầu sự đồng ý chủ động rõ ràng trước khi xử lý dữ liệu cá nhân/nhạy cảm vượt ngoài kỳ vọng hợp lý của người dùng, bao gồm:</p>
+      <ul>
+        <li>Công bố nổi bật mục đích quyền camera/micro trước khi yêu cầu quyền runtime.</li>
+        <li>Công bố nổi bật thực hành thu thập dữ liệu của SDK bên thứ ba trong quá trình onboarding hoặc lần mở ứng dụng đầu tiên.</li>
+        <li>Công bố nổi bật việc xử lý quảng cáo cá nhân hóa, kèm tùy chọn opt-out khi khả dụng.</li>
+        <li>Đóng hộp thoại, bấm quay lại hoặc rời khỏi trang không được xem là sự đồng ý.</li>
+      </ul>
+
+      <h2>18. Khả năng truy cập chính sách và ngôn ngữ</h2>
+      <ul>
+        <li>Chính sách này có sẵn trong ứng dụng (Settings -> Privacy Policy) và trên URL HTTPS công khai.</li>
+        <li>Không cần đăng nhập để xem bản web của chính sách.</li>
+        <li>Nếu có xung đột giữa các ngôn ngữ, bản tiếng Anh được ưu tiên.</li>
+      </ul>
+
+      <h2>19. Thay đổi chính sách này</h2>
+      <p>Chúng tôi có thể cập nhật chính sách khi tính năng ứng dụng, nhà cung cấp dịch vụ, yêu cầu pháp lý hoặc thực tiễn xử lý dữ liệu thay đổi.</p>
+      <ul>
+        <li>Với thay đổi nhỏ không trọng yếu (ví dụ làm rõ nội dung), chúng tôi cập nhật ngày "Last Updated" và công bố phiên bản mới trong ứng dụng và trên trang công khai này.</li>
+        <li>Với thay đổi trọng yếu làm giảm quyền riêng tư, thay đổi mục đích xử lý cốt lõi hoặc thêm thực hành chia sẻ dữ liệu mới, chúng tôi thông báo nổi bật trong ứng dụng ít nhất 30 ngày trước khi có hiệu lực và lấy sự đồng ý rõ ràng khi luật áp dụng yêu cầu.</li>
+      </ul>
+
+      <h2>20. Liên hệ</h2>
       <ul>
         <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
         <li>Phản hồi trong ứng dụng: Settings -> Send Feedback</li>
@@ -628,48 +1084,200 @@
     </section>
 
     <section class="lang-section" data-lang="ms" hidden>
-      <h2>Ringkasan Dasar Privasi (Bahasa Melayu)</h2>
-      <p>Ini ialah ringkasan terjemahan untuk kemudahan. Versi Bahasa Inggeris ialah versi rasmi yang berkuat kuasa.</p>
+      <h2>1. Pengenalan dan Skop</h2>
+      <p>Dasar Privasi ini menerangkan bagaimana LinguaAI ("Aplikasi") mengumpul, menggunakan, berkongsi, menyimpan dan memadam data.</p>
+      <p>Dasar ini terpakai kepada aplikasi Android LinguaAI, backend API gateway kami (Cloudflare Worker), serta SDK/penyedia perkhidmatan pihak ketiga yang diintegrasikan.</p>
 
-      <h3>1. Skop</h3>
-      <p>Dasar ini terpakai kepada aplikasi Android LinguaAI, backend Cloudflare Worker, dan SDK pihak ketiga yang diintegrasikan.</p>
+      <h2>2. Data yang Kami Proses</h2>
+      <p>Kami mengamalkan prinsip peminimuman data dan hanya memproses data yang diperlukan untuk ciri teras, keselamatan, pencegahan penyalahgunaan, diagnostik, analitik, iklan dan pematuhan undang-undang.</p>
 
-      <h3>2. Data yang diproses</h3>
+      <h3>2.1 Data yang Anda Cipta dalam Aplikasi</h3>
       <ul>
-        <li>Data dalam aplikasi: sejarah terjemahan, kosa kata, sejarah kandungan AI, tetapan aplikasi.</li>
-        <li>Data teknikal: ID peranti pseudonim, metadata teknikal, metadata rangkaian (contohnya IP), metrik keselamatan/rate-limit.</li>
+        <li>Sejarah terjemahan</li>
+        <li>Kosa kata dan rekod pembelajaran</li>
+        <li>Sejarah kandungan dijana AI</li>
+        <li>Keutamaan dan tetapan aplikasi</li>
       </ul>
 
-      <h3>3. Kebenaran sensitif</h3>
+      <h3>2.2 Data Peranti dan Teknikal</h3>
       <ul>
-        <li>Kebenaran: <code>CAMERA</code>, <code>RECORD_AUDIO</code>, <code>INTERNET</code>.</li>
-        <li>Kebenaran kamera/mikrofon diminta hanya apabila pengguna aktif menggunakan ciri berkaitan.</li>
-        <li>Jika ditolak, hanya ciri berkaitan terjejas; ciri teks teras lain kekal tersedia.</li>
-        <li>Kebenaran kamera/audio tidak digunakan untuk profiling atau pengiklanan yang tidak berkaitan.</li>
+        <li>Pengecam peranti pseudonim yang dijana aplikasi (digunakan secara eksklusif untuk pengurusan kuota, anti-penyalahgunaan dan perlindungan keselamatan; tidak dipautkan kepada Google Advertising ID anda, tidak digunakan untuk penjejakan iklan, pemprofilan pengguna, atau tujuan selain yang dinyatakan dalam dasar ini)</li>
+        <li>Metadata teknikal aplikasi/peranti</li>
+        <li>Metadata rangkaian di API edge (contohnya alamat IP)</li>
+        <li>Status keselamatan, had kadar dan metrik operasi</li>
       </ul>
 
-      <h3>4. Tujuan dan tempoh pengekalan</h3>
-      <p>Data digunakan untuk ciri aplikasi, routing AI rangkaian, anti-penyalahgunaan, analitik/diagnostik, iklan, keselamatan dan pematuhan undang-undang. Data backend disimpan mengikut TTL operasi (contohnya metrik sekitar 35 hari), kecuali jika undang-undang memerlukan tempoh lebih panjang.</p>
+      <h3>2.3 Kebenaran Sensitif dan Sempadan Penggunaan</h3>
+      <p>Kebenaran Android semasa yang diminta oleh aplikasi:</p>
+      <ul>
+        <li><code>CAMERA</code></li>
+        <li><code>RECORD_AUDIO</code></li>
+        <li><code>INTERNET</code></li>
+      </ul>
+      <ul>
+        <li>Kebenaran kamera/mikrofon diminta hanya apabila anda aktif menggunakan ciri berkaitan (bukan semasa aplikasi dibuka).</li>
+        <li>Jika anda menolak kebenaran kamera/mikrofon, ciri berkaitan tidak berfungsi, tetapi ciri teks teras lain kekal tersedia.</li>
+        <li>Aplikasi pada masa ini tidak meminta kebenaran lokasi runtime.</li>
+        <li>Kebenaran kamera/audio tidak digunakan untuk pemprofilan atau pengiklanan yang tidak berkaitan.</li>
+      </ul>
 
-      <h3>5. Permintaan pemadaman data sisi pelayan</h3>
+      <h3>2.4 Pembelian</h3>
+      <p>Google Play Billing memproses data pembayaran/transaksi. Kami tidak menyimpan butiran penuh kad pembayaran.</p>
+
+      <h3>2.5 Iklan, Analitik dan Diagnostik</h3>
+      <ul>
+        <li>Penyiaran iklan/pengukuran/anti-penipuan (AdMob)</li>
+        <li>Analitik produk (Firebase Analytics)</li>
+        <li>Diagnostik kerosakan aplikasi (Firebase Crashlytics)</li>
+      </ul>
+
+      <h2>3. Tujuan Pemprosesan</h2>
+      <ul>
+        <li>Menyediakan ciri terjemahan dan pembelajaran bahasa</li>
+        <li>Menyokong ciri AI berasaskan rangkaian melalui routing backend</li>
+        <li>Menguatkuasakan had kuota dan kawalan anti-penyalahgunaan</li>
+        <li>Menyiar dan mengukur iklan</li>
+        <li>Meningkatkan kualiti serta prestasi aplikasi</li>
+        <li>Mengesan kerosakan, isu keselamatan, dan penipuan</li>
+        <li>Memenuhi kewajipan undang-undang</li>
+      </ul>
+
+      <h2>4. Pemprosesan Backend dan Pengekalan Data</h2>
+      <p>Apabila ciri rangkaian digunakan, permintaan diproses oleh backend kami (Cloudflare Worker).</p>
+      <h3>4.1 Kategori Data Backend</h3>
+      <ul>
+        <li>Payload API yang diperlukan untuk menyampaikan ciri yang diminta</li>
+        <li>Header ID peranti pseudonim</li>
+        <li>Metadata rangkaian edge (contohnya IP)</li>
+        <li>Status keselamatan, anti-penyalahgunaan dan had kadar</li>
+      </ul>
+      <h3>4.2 Tujuan Backend</h3>
+      <ul>
+        <li>Menghala permintaan ke penyedia model yang dikonfigurasi</li>
+        <li>Mencegah penyalahgunaan/penipuan/replay dan menguatkuasakan had</li>
+        <li>Menjaga integriti aliran reward challenge/claim</li>
+        <li>Menyokong operasi, kebolehpercayaan dan tindak balas insiden</li>
+      </ul>
+      <h3>4.3 Tempoh Pengekalan Lazim</h3>
+      <ul>
+        <li>Metrik: sehingga kira-kira 35 hari</li>
+        <li>Status risiko/anti-penyalahgunaan: TTL jangka pendek (boleh dikonfigurasi)</li>
+        <li>Status reward challenge: jangka sangat pendek (minit)</li>
+        <li>Data cache sementara dipadamkan secara automatik selepas transaksi API selesai, kecuali jika pengekalan diperlukan untuk tujuan keselamatan atau anti-penyalahgunaan.</li>
+      </ul>
+      <p>Jika undang-undang memerlukan tempoh pengekalan lebih lama, keperluan undang-undang akan diutamakan.</p>
+
+      <h2>5. Permintaan Pemadaman Data Sisi Pelayan</h2>
+      <p>Walaupun tanpa akaun LinguaAI berasingan, anda boleh meminta pemadaman data sisi pelayan yang boleh dipautkan.</p>
+      <p><strong>Cara memohon:</strong></p>
       <ul>
         <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
-        <li>Subjek: <code>Server Data Deletion Request</code></li>
-        <li>Sertakan maklumat padanan: ID peranti aplikasi, julat masa, negara/wilayah, versi aplikasi.</li>
-        <li>Permintaan sah diproses dalam 30 hari kalendar dan disahkan melalui email.</li>
+        <li>Subjek: "Server Data Deletion Request"</li>
+        <li>Sertakan maklumat padanan (contohnya ID peranti dijana aplikasi, julat masa anggaran, negara/wilayah, versi aplikasi)</li>
+      </ul>
+      <p><strong>Proses:</strong></p>
+      <ul>
+        <li>Kami mengakui dan mengesahkan permintaan.</li>
+        <li>Permintaan yang sah diproses dalam 30 hari kalendar (atau lebih cepat jika undang-undang tempatan memerlukan).</li>
+        <li>Kami menghantar pengesahan penyelesaian melalui email.</li>
+        <li>Jika data perlu dikekalkan atas sebab undang-undang/keselamatan/anti-penipuan, pemprosesan dihadkan kepada tujuan tersebut dan sebabnya akan diterangkan.</li>
       </ul>
 
-      <h3>6. Pihak ketiga dan pengiklanan</h3>
-      <p>Penyedia utama termasuk Google ML Kit, AdMob, Google Play Billing/Services, Firebase Analytics/Crashlytics, Cloudflare, serta penyedia AI yang dikonfigurasi backend (contohnya Google/OpenAI). Kami tidak menjual data peribadi untuk wang dan tidak sengaja menggunakan kategori sensitif untuk iklan diperibadikan.</p>
+      <h2>6. Perkhidmatan Pihak Ketiga dan Perkongsian Data</h2>
+      <p>Kami tidak menjual data peribadi untuk wang. Di bawah dasar Google Play, pembangun kekal bertanggungjawab terhadap tingkah laku data SDK pihak ketiga dalam aplikasi.</p>
+      <ol>
+        <li>Google ML Kit (OCR/translation/speech) - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Google AdMob (ads/measurement/anti-fraud) - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Google Play Billing / Google Play Services - <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
+        <li>Firebase Analytics - <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
+        <li>Firebase Crashlytics - <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a></li>
+        <li>Cloudflare - <a href="https://www.cloudflare.com/privacypolicy/">https://www.cloudflare.com/privacypolicy/</a></li>
+        <li>Penyedia AI yang dikonfigurasi backend (contohnya Google Gemini API, OpenAI API) -
+          <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>,
+          <a href="https://openai.com/policies/privacy-policy">https://openai.com/policies/privacy-policy</a>
+        </li>
+      </ol>
+      <p>Data input pengguna hanya diproses oleh penyedia AI apabila anda secara aktif memulakan ciri AI berasaskan rangkaian, dan hanya untuk menjana kandungan yang anda minta. Kami tidak menggunakan kandungan input anda untuk latihan model melainkan didedahkan secara jelas dan dipersetujui oleh anda.</p>
+      <p>Kami mungkin mendedahkan data apabila dikehendaki undang-undang, proses undang-undang, atau untuk melindungi hak/keselamatan.</p>
 
-      <h3>7. Hak pengguna</h3>
-      <p>Pengguna mempunyai hak di bawah undang-undang terpakai seperti akses, pembetulan, pemadaman, sekatan/bantahan pemprosesan. Kami memberi respons kepada permintaan sah dalam 30 hari kalendar (atau lebih cepat jika undang-undang tempatan memerlukan).</p>
+      <h2>7. Sekatan Iklan Kategori Sensitif</h2>
+      <ul>
+        <li>Kami tidak dengan sengaja menggunakan kategori sensitif (bangsa, agama, orientasi seksual, status kesihatan, kesulitan kewangan dan sebagainya) untuk iklan diperibadikan.</li>
+        <li>Kami tidak dengan sengaja menggunakan kandungan terjemahan tempatan, rekod kosa kata, atau kandungan AI dijana sebagai input langsung untuk sasaran iklan diperibadikan.</li>
+        <li>Anda boleh mengurus pemperibadian iklan dalam tetapan Google Ads/peranti.</li>
+        <li>Jika anda memilih keluar daripada iklan diperibadikan, kami akan memaparkan iklan tidak diperibadikan berdasarkan konteks wilayah umum tanpa pemprofilan pengguna atau penyasaran iklan.</li>
+      </ul>
 
-      <h3>8. Kanak-kanak, keselamatan dan pemindahan perniagaan</h3>
-      <p>Aplikasi ini tidak disasarkan kepada kanak-kanak di bawah 13 tahun (atau umur minimum tempatan yang lebih tinggi). Kami menggunakan HTTPS/TLS, kawalan akses dan proses respons insiden. Jika berlaku pemindahan perniagaan material, kami akan memberi notis awal dan mewajibkan perlindungan setara oleh pihak penerima.</p>
+      <h2>8. Kenyataan Sale/Share</h2>
+      <ul>
+        <li>Di bawah dasar Google Play, "sale" lazimnya merujuk kepada pertukaran/pemindahan data peribadi dan sensitif untuk balasan kewangan.</li>
+        <li>Jika undang-undang terpakai mentakrifkan sale/share dengan skop lebih luas (contohnya balasan bernilai lain), kami mematuhi keperluan undang-undang yang berkenaan.</li>
+      </ul>
 
-      <h3>9. Bahasa dan hubungan</h3>
-      <p>Jika terdapat percanggahan antara bahasa, versi Bahasa Inggeris akan diguna pakai.</p>
+      <h2>9. Hak Pengguna dan Tempoh Respons</h2>
+      <p>Bergantung pada bidang kuasa anda, anda mungkin mempunyai hak akses, pembetulan, pemadaman, kebolehportan, bantahan/sekat pemprosesan, dan aduan.</p>
+      <ul>
+        <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
+        <li>Dalam aplikasi: Settings -> Send Feedback</li>
+      </ul>
+      <p>Kami memberi respons kepada permintaan sah dalam 30 hari kalendar melainkan undang-undang menetapkan tempoh lebih singkat.</p>
+
+      <h2>10. Tiada Akaun LinguaAI Berasingan</h2>
+      <p>Aplikasi ini pada masa ini tidak menyediakan pendaftaran/log masuk akaun LinguaAI berasingan. Aliran pemadaman akaun dalam aplikasi tidak terpakai; pemadaman data sisi pelayan dirujuk kepada Seksyen 5.</p>
+
+      <h2>11. Kanak-Kanak</h2>
+      <p>Aplikasi ini tidak disasarkan kepada kanak-kanak. Kami tidak secara sedar mengumpul data peribadi daripada kanak-kanak di bawah umur 13 tahun (COPPA), atau di bawah umur majoriti yang terpakai di bidang kuasa anda, termasuk 18 tahun bagi Malaysia dan Vietnam, 20 tahun bagi Thailand, dan 21 tahun bagi Indonesia. Jika data tersebut dikenal pasti, kami akan segera mengambil langkah pemadaman kekal.</p>
+
+      <h2>12. Keselamatan</h2>
+      <ul>
+        <li>Penyulitan HTTPS/TLS untuk semua penghantaran rangkaian antara Aplikasi dan backend kami</li>
+        <li>Perlindungan penyulitan standard industri bagi data sensitif yang disimpan secara setempat pada peranti anda (jika disokong oleh OS peranti dan konfigurasi storan aplikasi)</li>
+        <li>Kawalan akses ketat dan prinsip keistimewaan minimum untuk sistem backend</li>
+        <li>Pemantauan anti-penyalahgunaan berterusan dan kawalan keselamatan</li>
+        <li>Prosedur tindak balas insiden rasmi untuk peristiwa keselamatan data</li>
+      </ul>
+
+      <h2>13. Pemindahan Perniagaan</h2>
+      <ul>
+        <li>Kami memberi notis sebelum pemindahan material data peribadi (kebiasaannya sekurang-kurangnya 30 hari apabila boleh/diperlukan).</li>
+        <li>Pihak penerima mesti melindungi data dengan standard yang tidak kurang daripada dasar ini.</li>
+        <li>Apabila dibenarkan secara undang-undang, anda boleh meminta pemadaman sebelum pemindahan berkuat kuasa.</li>
+      </ul>
+
+      <h2>14. Pemprosesan Rentas Sempadan</h2>
+      <p>Data mungkin diproses di luar negara anda melalui penyedia global. Kami melaksanakan langkah perlindungan yang dikehendaki oleh undang-undang terpakai.</p>
+
+      <h2>15. Pematuhan Asia Tenggara</h2>
+      <p>Bagi pengguna di Asia Tenggara (termasuk Singapura, Indonesia, Thailand, Malaysia, dan Vietnam), kami memproses data peribadi mengikut undang-undang perlindungan data tempatan yang terpakai, termasuk Singapore PDPA, Indonesia PDP Law No. 27/2022, Thailand PDPA B.E. 2562, Malaysia PDPA 2010, dan Vietnam Decree 13/2023/ND-CP. Anda boleh menggunakan hak berkanun melalui maklumat hubungan dalam Seksyen 9, dan kami akan memberi respons dalam tempoh yang dikehendaki undang-undang tempatan.</p>
+
+      <h2>16. Teknologi Penjejakan</h2>
+      <p>Aplikasi dan SDK mungkin menggunakan pengecam serta teknologi serupa (contohnya Android advertising identifiers dan telemetry SDK) untuk iklan, analitik, diagnostik, keselamatan, dan anti-penipuan.</p>
+      <p>Anda boleh mengurus pemperibadian iklan dan menetapkan semula advertising identifier dalam tetapan Google Ads.</p>
+
+      <h2>17. Pendedahan Menonjol dan Persetujuan Dalam Aplikasi</h2>
+      <p>Jika diwajibkan oleh dasar Google Play, kami menyediakan pendedahan menonjol yang jelas dalam aplikasi dan meminta persetujuan aktif yang jelas sebelum memproses data peribadi/sensitif di luar jangkaan munasabah pengguna, termasuk:</p>
+      <ul>
+        <li>Pendedahan menonjol mengenai tujuan penggunaan kamera/mikrofon sebelum meminta kebenaran runtime.</li>
+        <li>Pendedahan menonjol mengenai amalan pengumpulan data SDK pihak ketiga semasa onboarding atau pelancaran pertama aplikasi.</li>
+        <li>Pendedahan menonjol mengenai pemprosesan iklan diperibadikan, dengan kawalan opt-out apabila tersedia.</li>
+        <li>Menutup popup, menekan butang kembali, atau meninggalkan halaman tidak dianggap sebagai persetujuan.</li>
+      </ul>
+
+      <h2>18. Kebolehcapaian Dasar dan Bahasa</h2>
+      <ul>
+        <li>Dasar ini tersedia dalam aplikasi (Settings -> Privacy Policy) dan pada URL HTTPS awam.</li>
+        <li>Tiada log masuk diperlukan untuk melihat versi web dasar.</li>
+        <li>Jika terdapat percanggahan antara versi bahasa, versi Bahasa Inggeris terpakai.</li>
+      </ul>
+
+      <h2>19. Perubahan kepada Dasar Ini</h2>
+      <p>Kami boleh mengemas kini dasar ini apabila ciri aplikasi, penyedia perkhidmatan, keperluan undang-undang, atau amalan pemprosesan data berubah.</p>
+      <ul>
+        <li>Untuk perubahan kecil bukan material (contohnya penjelasan), kami mengemas kini tarikh "Last Updated" dan menerbitkan versi terkini dalam aplikasi serta pada halaman awam ini.</li>
+        <li>Untuk perubahan material yang mengurangkan hak privasi, mengubah tujuan pemprosesan teras, atau memperkenalkan amalan perkongsian data baharu, kami menyediakan notis menonjol dalam aplikasi sekurang-kurangnya 30 hari sebelum berkuat kuasa dan mendapatkan persetujuan jelas apabila dikehendaki oleh undang-undang terpakai.</li>
+      </ul>
+
+      <h2>20. Hubungi</h2>
       <ul>
         <li>Email: <strong>cdlcdl9527@gmail.com</strong></li>
         <li>Maklum balas dalam aplikasi: Settings -> Send Feedback</li>
